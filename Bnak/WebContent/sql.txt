@@ -1,0 +1,23 @@
+CREATE TABLE `tbl_bank` (
+	`bnumber` INT(10) NOT NULL,
+	`bname` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`bpassword` INT(10) NULL DEFAULT NULL,
+	`bdate` DATE NULL DEFAULT NULL,
+	PRIMARY KEY (`bnumber`) USING BTREE
+)
+COMMENT='통장'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+CREATE TABLE `tbl_user` (
+	`userID` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	`userPW` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`userName` VARCHAR(20) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`date` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`userID`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
