@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%@page import="java.io.PrintWriter"%>
-<%@ page import="com.bit.dao.userDAO" %>
-<%@ page import="com.bit.dto.userDTO" %>
+<%@ page import="com.bit.dao.UserDAO" %>
+<%@ page import="com.bit.dto.UserDTO" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	
@@ -22,8 +22,8 @@
 		script.close();
 		return;
 	}
- 	userDAO userDAO=new userDAO();
-	int result=userDAO.join(new userDTO(userID,userPassword,userName,null));
+ 	UserDAO userDAO=new UserDAO();
+	int result=userDAO.join(new UserDTO(userID,userPassword,userName,null));
 	if(result==1){
 		PrintWriter script=response.getWriter();
 		System.out.print("");
@@ -33,8 +33,7 @@
 		script.println("</script>");
 		script.close();
 		return;
-	} 
-	
+	}
 %>
 <%-- userID:<%=userID%><br>
 userPassword:<%=userPassword %><br>

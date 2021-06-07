@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <title>Insert title here</title>
 </head>
+<% 
+	String userID=(String)session.getAttribute("userID");
+%>
 <body>
 <header>
 	<jsp:include page="navbar.jsp"/>
@@ -16,6 +19,7 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">입출금 은행 만들기</h1>
+          <h2>${userID}</h2>
           <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
           <p><jsp:include page="makeBankBook.jsp"/></p>
         </div>
@@ -42,7 +46,7 @@
           <div class="col-md-3">
             <h2>내 통장</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <p><a class="btn btn-secondary" href="#" role="button" onclick="checkForm()">View details »</a></p>
           </div>
         </div>
 
@@ -52,5 +56,15 @@
 
     </main>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+function checkForm() {// 로그인확인 
+	//alert("실험");
+	if (${userID==null}) {
+		alert("로그인 해주세요.");
+		return false;
+	}
+	location.href = "./myBankBook.jsp"	//로그인시 myBankBook.jsp로 감
+}
+</script>
 </body>
 </html>

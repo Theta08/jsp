@@ -1,6 +1,6 @@
 package com.bit.dto;
 
-public class userDTO {
+public class UserDTO {
 
 	private String userID;
 	private String userPW;
@@ -9,12 +9,12 @@ public class userDTO {
 	
 	
 	//생성자
-	public userDTO() {
-		super();
+	public UserDTO() {
+		
 	}
 
 
-	public userDTO(String userID, String userPW, String userName, String date) {
+	public UserDTO(String userID, String userPW, String userName, String date) {
 		super();
 		this.userID = userID;
 		this.userPW = userPW;

@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import com.bit.dto.userDTO;
+import com.bit.dto.UserDTO;
 import com.bit.util.DBConnecion;
 
 
-public class userDAO {
+public class UserDAO {
 
 	//회원가입
-	public int join(userDTO user) {
+	public int join(UserDTO user) {
 		//sql문
 		//Column count doesn't match value count at row 1 -> tbl과 valuse(..) 일치해야한다.
 		String sql="INSERT INTO tbl_user VALUES (?, ?, ?, ?)";
@@ -36,7 +36,12 @@ public class userDAO {
 			return pstmt.executeUpdate();		//실제 영향받은 데이터 반환
 		}catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {if(conn!=null) conn.close(); } catch (Exception e) {e.printStackTrace();}
+			try {if(pstmt!=null) pstmt.close(); } catch (Exception e) {e.printStackTrace();}
+			try {if(rs!=null) rs.close(); } catch (Exception e) {e.printStackTrace();}
 		}
+
 		
 		return -1;
 	}

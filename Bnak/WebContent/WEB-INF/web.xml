@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <!-- 첫 페이지 설정 -->
+  <display-name>Bank</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+<!-- 	<login-config>
+ 		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/login_failed.jsp</form-error-page>
+		</form-login-config>
+ 	</login-config> -->
+ 	
+<!--  	<error-page>
+ 		<error-code>404</error-code>
+ 		<location>/exceptionNoPage.jsp</location>
+ 	</error-page> -->
+ 	
+ 	<!-- 필터 -->
+ 	<!--  
+ 	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>filter.LogFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 	
+ 	-->
+ 	<!-- mvc -->
+ 	<servlet>
+		<servlet-name>BoardController</servlet-name>
+ 		<servlet-class>com.bit.util.BoardController</servlet-class>
+ 	</servlet>
+ 	<servlet-mapping>
+		 <servlet-name>BoardController</servlet-name>
+ 		<url-pattern>*.do</url-pattern> <!-- 뒤에 .do만 붙으면 (서블릿)이걸로 처리하겠다  -->
+	 </servlet-mapping>	
+
+  
+</web-app>

@@ -31,46 +31,48 @@
 		    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="mo1" aria-hidden="true">
 		        <div class="modal-dialog">
 		            <div class="modal-content">
+		            
 		                <div class="modal-header">
 		                    <h5 class="modal-title" id="mo1">통장 만들기</h5>
 		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		                        <span aria-hidden="true">&times;</span>
 		                    </button>
 		                </div>
-		                <div class="modal-body">
-		                <form action="./#" method="post">
+		                
+		                <div class="modal-body">									<!--  function(로그인 확인) -->
+		                <form action="./makeBankBookAction.jsp" method="post" name="newBankBook" onsubmit="return cheak()">
 		                 	<div class="form-row">
 								<div class="form-group col-sm-6">
-									<label>강의명</label>
-										<input type="text" name="lectureName" class="form-control" maxlength="20">
+									<label>이름</label>
+										<input type="text" name="bname" class="form-control" maxlength="20">
 								</div>
-								<div class="form-group col-sm-6">
-									<label>계좌만들기</label>
-										<input type="text" name="professorName" class="form-control" maxlength="20">
-								</div>
+								
 							</div>
+								
+							<label>계좌번호</label>	
 							<div class="form-row">
 								<div class="form-group col-sm-10">
-									계좌번호	
 									<input type="text" name="bnumber" id="randBtnNumber" class="form-control" maxlength="10">
-									
 								</div>
 								<div class="form-group col-sm-2">
-									<button type="button" class="btn btn-primary" onclick="makeRandBtn()">
-											생성
+									<button type="button" class="btn btn-primary " onclick="makeRandBtn()">
+										생성
 									</button>
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-sm-8">
-									비밀번호<input type="text" name="bpassword" class="form-control" maxlength="20">
+									비밀번호<input type="password" name="bpassword" class="form-control" maxlength="20"
+									oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 								</div>
 							</div>
+							
+			                <div class="modal-footer">
+			                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			                    <button type="submit" class="btn btn-primary">확인</button>
+			                </div>
+			                
 							</form>
-		                </div>
-		                <div class="modal-footer">
-		                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		                    <button type="submit" class="btn btn-primary">Save changes</button>
 		                </div>
 		            </div>
 		        </div>
@@ -96,6 +98,31 @@
         	}
 	    	document.getElementById("randBtnNumber").value = ''+v;
 	    }
+    	//빈칸 검사
+    	function cheak(){
+    		if (!document.newBankBook.bname.value) {
+    			alert("아이디를 입력하세요.");
+    			return false;
+    		}
+
+    	 	if (!document.newBankBook.bnumber.value) {
+    			alert("계좌번호 임력");
+    			return false;
+    		}
+    	 	
+    	 	if (!document.newBankBook.bpassword.value) {
+    			alert("비밀번호를 입력하세요.");
+    			return false;
+    		}
+    	 	
+    	 	
+
+    	 	//숫자만 입력하게 하기
+    		/* if (document.newMember.password.value != document.newMember.password_confirm.value) {
+    			alert("비밀번호를 동일하게 입력하세요.");
+    			return false;
+    		} */
+    	}
     </script>
 </body>
 </html>

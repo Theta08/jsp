@@ -1,5 +1,5 @@
+<%@page import="com.bit.dao.UserDAO"%>
 <%@page import="java.io.PrintWriter"%>
-<%@page import="com.bit.dao.userDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -8,15 +8,17 @@
 	String userID=null;
 	String userPassword=null;
 	
-	if(request.getParameter("userID")!=null){
+	
+ 	if(request.getParameter("userID")!=null){
 		userID=(String)request.getParameter("userID");
 	}
 	
 	if(request.getParameter("userPassword")!=null){
 		userPassword=(String)request.getParameter("userPassword");
-	}
+	} 
 	
-	userDAO userDAO=new userDAO();
+	
+	UserDAO userDAO=new UserDAO();
 	//로그인 확인
 	int result=userDAO.login(userID, userPassword);
 	//성공
@@ -53,12 +55,10 @@
 		script.println("</script>");
 		script.close();
 		return;
-	} 
-	
-	
+	}
 %>
 id:<%=userID %><br>
 pw:<%=userPassword %><br>
-
+int:${result}<br>
 id:${param.userID}<br>
 pw:${param.userPassword}<br>
