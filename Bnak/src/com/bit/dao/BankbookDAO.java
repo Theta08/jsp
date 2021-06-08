@@ -5,10 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import com.bit.dto.BankbookDTO;
 import com.bit.util.DBConnecion;
-
 
 public class BankbookDAO {
 	
@@ -58,5 +58,77 @@ public class BankbookDAO {
 		return -1;
 	}
 	
+	//?
+	public int getListCount(String items, String text) {
+		//items
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		int x = 0;
+
+		String sql;
+		
+		if (items == null && text == null)
+			sql = "select count(*) from tbl_bank";
+		else
+			sql = "SELECT count(*) FROM tbl_bank where " + items + " like '%" + text + "%'";
+		
+		try {//DB
+			conn = DBConnecion.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) 
+				x = rs.getInt(1);
+			
+		} catch (Exception ex) {
+			System.out.println("getListCount() ����: " + ex);
+		} finally {			
+			closeAll(rs,pstmt,conn);	
+		}		
+		return x;
+	} 
+	
+	//게시판
+	public ArrayList<BankbookDTO> getlist(int page, int limit, String items, String text){
+		String sql="select * from tbl_bank";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		//
+		int total_record = getListCount(items, text );
+		int start = (page - 1) * limit;	//limit=5 
+		int index = start + 1;
+		
+		ArrayList<BankbookDTO> list=new ArrayList<BankbookDTO>();
+		try {
+			//db연결
+			conn=DBConnecion.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while (rs.absolute(index)) {
+				BankbookDTO board = new BankbookDTO();
+				board.setBnumber(rs.getInt("num"));
+				board.setBname(rs.getString("id"));
+				board.setBpassword(rs.getInt("password"));
+				board.setBdate(rs.getString("bdate"));
+				list.add(board);
+				if (index < (start + limit) && index <= total_record)
+					index++;
+				else
+					break;
+			}
+			return list;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {closeAll(rs,pstmt,conn);}
+		
+		return null;
+		
+	}
 
 }

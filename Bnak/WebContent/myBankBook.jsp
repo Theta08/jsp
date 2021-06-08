@@ -28,7 +28,7 @@
 			<div style="padding-top: 50px">
 				<table class="table table-hover">
 					<tr>
-						<th>번호</th>
+						<th>통장번호</th>
 						<th>날짜</th>
 						<th>맡긴금액</th>
 						<th>거래내용</th>
@@ -37,7 +37,7 @@
 					
 					
 					<tr>
-						<td>번호</td>
+						<td>통장번호</td>
 						<td>날짜</td>
 						<td>맡긴금액</td>
 						<td>거래내용</td>
