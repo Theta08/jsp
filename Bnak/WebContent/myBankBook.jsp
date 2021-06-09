@@ -228,11 +228,16 @@
 					<%}//---if1%>
 					<!-- 페이징 및 블럭 End -->
 					</td>
-				
+					
 				</tr>
 			</table>
 			</div>
+			<div class="text-right">
+					<a href="post.jsp">[글쓰기]</a>
+					<a href="myBankBook.jsp" class="btn btn-success">처음으로</a>
+			</div>
 
+			<hr>
 
 	<form name="listFrm" method="post">
 		<input type="hidden" name="reload" value="true">
