@@ -44,7 +44,7 @@
 		                 	<div class="form-row">
 								<div class="form-group col-sm-6">
 									<label>이름</label>
-										<input type="text" name="bname" class="form-control" maxlength="20">
+										<input type="text" name="bname" class="form-control" maxlength="20" value=<%=userID%>>
 								</div>
 								
 							</div>

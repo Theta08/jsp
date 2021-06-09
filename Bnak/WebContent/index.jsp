@@ -18,8 +18,8 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">입출금 은행 만들기?</h1>
-          <h2>테스트:${userID}</h2>
+          <h1 class="display-3">입출금 은행 만들기</h1>
+          <h2>${userID}</h2>
           <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
           <p><jsp:include page="makeBankBook.jsp"/></p>
         </div>
@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-md-3">
             <h2>통장만들기<p>(경매생각중..)</p></h2>
-            <p>Node.js를 이용해서 서버구측. 채팅창 만들어서 실시간 경매 만들기(다른 기능 전부 만들면 하기)</p>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
           </div>
           <div class="col-md-3">

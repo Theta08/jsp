@@ -2,7 +2,7 @@ package com.bit.dto;
 
 public class UserDTO {
 
-	private String userID;
+	private String userID="";
 	private String userPW;
 	private String userName="";
 	private String date;
@@ -11,6 +11,10 @@ public class UserDTO {
 	//생성자
 	public UserDTO() {
 		
+	}
+	public UserDTO(String userID) {
+		super();
+		this.userID = userID;
 	}
 
 

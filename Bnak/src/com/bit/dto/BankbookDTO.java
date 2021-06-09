@@ -9,18 +9,31 @@ public class BankbookDTO {
 	private String bname;
 	private int bpassword;
 	private String bdate;
+	private UserDTO userID;
+	//private String userID;
 	
-	public BankbookDTO() {
-		
-	}
+
+
+	public BankbookDTO() {}
 	
-	public BankbookDTO(int bnumber, String bname, int bpassword, String bdate) {
+
+
+	/*
+	 * public BankbookDTO(int bnumber, String bname, int bpassword, String bdate) {
+	 * this.bnumber = bnumber; this.bname = bname; this.bpassword = bpassword;
+	 * this.bdate = bdate; }
+	 */
+
+	public BankbookDTO(int bnumber, String bname, int bpassword, String bdate, UserDTO userID) {
+		super();
 		this.bnumber = bnumber;
 		this.bname = bname;
 		this.bpassword = bpassword;
 		this.bdate = bdate;
+		this.userID = userID;
 	}
-	
+
+
 	public int getBnumber() {
 		return bnumber;
 	}
@@ -45,7 +58,16 @@ public class BankbookDTO {
 	public void setBdate(String bdate) {
 		this.bdate = bdate;
 	}
+
+	public UserDTO getUserID() {
+		return userID;
+	}
+
+	public void setUserID(UserDTO userID) {
+		this.userID = userID;
+	}
+
 	
-	
+
 	
 }
