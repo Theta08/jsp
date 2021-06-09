@@ -14,7 +14,7 @@ public class BankbookDTO {
 	
 
 
-	public BankbookDTO() {}
+	public BankbookDTO() {super();}
 	
 
 
