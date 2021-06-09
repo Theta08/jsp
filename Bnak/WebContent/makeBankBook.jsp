@@ -10,7 +10,7 @@
 </head>
 <body>
 <body>
-	<% 
+	<% //session으로 id값 가져오기 
 			String userID=null;
 			if(session.getAttribute("userID")!=null){
 				userID=(String)session.getAttribute("userID");
@@ -85,18 +85,18 @@
     <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/bootstrap.bundle.min.js"></script>
     <script>
-    	//버튼 클릭시 랜덤 숫자 발생
-	    function makeRandBtn() {//통장번호 랜덤값 지정
+    	//버튼 클릭시 랜덤 숫자 발생  
+	    function makeRandBtn() {//통장번호 랜덤값 지정   5숫자
 	    	var myArray1 = new Array();
         	var v="";			//통장번호담는 변수
         	for (var i=0;i<5;i++){
-        		var a=(Math.floor((Math.random()*10))).toString();	//1~9 랜덤숫자
+        		var a=(Math.floor((Math.random()*10))).toString();	//1~9 랜덤숫자 문자로 넣기
         		myArray1.push(a);
         		v+=myArray1[i];
         		console.log(""+myArray1[i]);
         		console.log("v:"+v);
         	}
-	    	document.getElementById("randBtnNumber").value = ''+v;
+	    	document.getElementById("randBtnNumber").value = ''+v; //랜덤변수 출력
 	    }
     	//빈칸 검사
     	function cheak(){
