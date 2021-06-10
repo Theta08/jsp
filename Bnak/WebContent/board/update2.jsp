@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
  <%@ page import="board.BoardBean"%>
 <% 
 	  int num = Integer.parseInt(request.getParameter("num"));
@@ -8,7 +8,7 @@
 	  String subject = bean.getSubject();
 	  String name = bean.getName(); 
 	  String content = bean.getContent();
-	  //read.jsp¿¡¼­ session¿¡ ºóÁî ´ÜÀ§·Î ÀúÀå Çß±â ¶§¹®¿¡ ÆÄÀÏ¸íµµ °¡Á® ¿Ã ¼ö ÀÖ´Ù.
+	  //read.jspì—ì„œ sessionì— ë¹ˆì¦ˆ ë‹¨ìœ„ë¡œ ì €ìž¥ í–ˆê¸° ë•Œë¬¸ì— íŒŒì¼ëª…ë„ ê°€ì ¸ ì˜¬ ìˆ˜ ìžˆë‹¤.
 	  String filename = bean.getFilename();
 %>
 <html>
@@ -18,7 +18,7 @@
 <script>
 	function check() {
 	   if (document.updateFrm.pass.value == "") {
-		 alert("¼öÁ¤À» À§ÇØ ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		 alert("ìˆ˜ì •ì„ ìœ„í•´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.");
 		 document.updateFrm.pass.focus();
 		 return false;
 		 }
@@ -30,7 +30,7 @@
 <div align="center"><br/><br/>
 <table width="600" cellpadding="3">
   <tr>
-   <td bgcolor="#FF9018"  height="21" align="center">¼öÁ¤ÇÏ±â2</td>
+   <td bgcolor="#FF9018"  height="21" align="center">ìˆ˜ì •í•˜ê¸°2</td>
   </tr>
 </table>
 <form name="updateFrm" method="post" action="boardUpdate2" enctype="multipart/form-data">
@@ -39,42 +39,42 @@
   <td>
    <table>
     <tr>
-     <td width="20%">¼º ¸í</td>
+     <td width="20%">ì„± ëª…</td>
      <td width="80%">
 	  <input name="name" value="<%=name%>" size="30" maxlength="20">
 	 </td>
 	</tr>
 	<tr>
-     <td>Á¦ ¸ñ</td>
+     <td>ì œ ëª©</td>
      <td>
 	  <input name="subject" size="50" value="<%=subject%>" maxlength="50">
 	 </td>
     <tr>
-     <td>³» ¿ë</td>
+     <td>ë‚´ ìš©</td>
      <td>
 	  <textarea name="content" rows="10" cols="50"><%=content%></textarea>
 	 </td>
     </tr>
     <tr>
-    <td>Ã·ºÎÆÄÀÏ</td>
+    <td>ì²¨ë¶€íŒŒì¼</td>
      <td>
-     	<%=filename!=null?filename:"Ã·ºÎµÈ ÆÄÀÏÀÌ ¾ø½À´Ï´Ù."%>
+     	<%=filename!=null?filename:"ì²¨ë¶€ëœ íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤."%>
      	<input type="file" name="filename" size="50" maxlength="50">
      </td>
     </tr>
 	<tr>
-     <td>ºñ¹Ð ¹øÈ£</td> 
+     <td>ë¹„ë°€ ë²ˆí˜¸</td> 
      <td><input type="password" name="pass" size="15" maxlength="15">
-      ¼öÁ¤ ½Ã¿¡´Â ºñ¹Ð¹øÈ£°¡ ÇÊ¿äÇÕ´Ï´Ù.</td>
+      ìˆ˜ì • ì‹œì—ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í•„ìš”í•©ë‹ˆë‹¤.</td>
     </tr>
 	<tr>
      <td colspan="2" height="5"><hr/></td>
     </tr>
 	<tr>
      <td colspan="2">
-	  <input type="button" value="¼öÁ¤¿Ï·á" onClick="check()">
-      <input type="reset" value="´Ù½Ã¼öÁ¤"> 
-      <input type="button" value="µÚ·Î" onClick="history.go(-1)">
+	  <input type="button" value="ìˆ˜ì •ì™„ë£Œ" onClick="check()">
+      <input type="reset" value="ë‹¤ì‹œìˆ˜ì •"> 
+      <input type="button" value="ë’¤ë¡œ" onClick="history.go(-1)">
 	 </td>
     </tr> 
    </table>

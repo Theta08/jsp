@@ -2,7 +2,7 @@ package com.bit.dto;
 
 public class UserDTO {
 
-	private String userID="";
+	private String userID=null;
 	private String userPW;
 	private String userName="";
 	private String date;

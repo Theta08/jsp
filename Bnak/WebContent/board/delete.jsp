@@ -1,41 +1,41 @@
 <!-- delete.jsp -->
 <%@page import="board.BoardBean"%>
 <%@page import="board.UtilMgr"%>
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <jsp:useBean id="mgr" class="board.BoardMgr"/>
 <html>
 <head>
 <%
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		String nowPage = request.getParameter("nowPage");
 		int num = UtilMgr.parseInt(request, "num");
-		//ºñ¹øÀ» ÀÔ·ÂÀ» ¹Ş¾Æ¼­ »èÁ¦¸¦ Ã³¸®ÇÏ´Â ±â´É
+		//ë¹„ë²ˆì„ ì…ë ¥ì„ ë°›ì•„ì„œ ì‚­ì œë¥¼ ì²˜ë¦¬í•˜ëŠ” ê¸°ëŠ¥
 		if(request.getParameter("pass")!=null){
 			BoardBean bean = (BoardBean)session.getAttribute("bean");
-			//delete.jsp¿¡¼­ »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ºñ¹ø
+			//delete.jspì—ì„œ ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë¹„ë²ˆ
 			String inPass = request.getParameter("pass");
-			//db¿¡ ÀúÀåµÈ ºñ¹ø
+			//dbì— ì €ì¥ëœ ë¹„ë²ˆ
 			String dbPass = bean.getPass();
-			if(inPass.equals(dbPass)){//==´Â °´Ã¼ÀÇ ÁÖ¼Ò°ª ºñ±³.
+			if(inPass.equals(dbPass)){//==ëŠ” ê°ì²´ì˜ ì£¼ì†Œê°’ ë¹„êµ.
 				mgr.deleteBoard(num);
-				//¿ø °Ô½Ã¹°ÀÌ »èÁ¦µÇ¸é °ü·ÁµÈ ´ñ±Û ¸ğµÎ »èÁ¦
+				//ì› ê²Œì‹œë¬¼ì´ ì‚­ì œë˜ë©´ ê´€ë ¤ëœ ëŒ“ê¸€ ëª¨ë‘ ì‚­ì œ
 
 				String url = "list.jsp?nowPage="+nowPage;
 				response.sendRedirect(url);
 			}else{%>
 			<script type="text/javascript">
-				alert("ÀÔ·ÂÇÏ½Å ºñ¹Ğ¹øÈ£°¡ ¾Æ´Õ´Ï´Ù.");
+				alert("ì…ë ¥í•˜ì‹  ë¹„ë°€ë²ˆí˜¸ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 				history.back();
 			</script>
 			<%}
-		}else{//ºñ¹øÀ» ÀÔ·Â ¹Ş±â À§ÇÑ Æû(form) Ãâ·Â
+		}else{//ë¹„ë²ˆì„ ì…ë ¥ ë°›ê¸° ìœ„í•œ í¼(form) ì¶œë ¥
 %>
 <title>JSP Board</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function check() {
 		if (document.delFrm.pass.value == "") {
-			alert("ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			document.delFrm.pass.focus();
 			return;
 		}
@@ -48,7 +48,7 @@
 	<table width="50%" cellspacing="0" cellpadding="3">
 		<tr>
 			<td bgcolor=#dddddd height="21" align="center">
-				»ç¿ëÀÚÀÇ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.
+				ì‚¬ìš©ìì˜ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.
 			</td>
 		</tr>
 	</table>
@@ -67,9 +67,9 @@
 						</tr>
 						<tr>
 							<td align="center">
-								<input type="button" value="»èÁ¦¿Ï·á" onClick="check()"> 
-								<input type="reset" value="´Ù½Ã¾²±â">
-								<input type="button" value="µÚ·Î" onClick="history.go(-1)">
+								<input type="button" value="ì‚­ì œì™„ë£Œ" onClick="check()"> 
+								<input type="reset" value="ë‹¤ì‹œì“°ê¸°">
+								<input type="button" value="ë’¤ë¡œ" onClick="history.go(-1)">
 							</td>
 						</tr>
 					</table>

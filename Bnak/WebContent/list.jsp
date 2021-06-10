@@ -3,7 +3,7 @@
 <%@page import="com.bit.util.UtilMgr"%>
 <%@page import="java.util.Vector"%>
 <%@page contentType="text/html; charset=UTF-8"%>
-<jsp:useBean id="mgr" class="com.bit.board.BoardMgr"/>
+<jsp:useBean id="mgr" class="board.BoardMgr"/>
 <jsp:useBean id="cmgr" class="board.BCommentMgr"/>
 <%
 		request.setCharacterEncoding("UTF-8");
@@ -14,7 +14,7 @@
 		int totalBlock = 0;//총 블럭 개수
 		int nowPage = 1;//현재 페이지
 		int nowBlock = 1;//현재 블럭
-		
+		s
 		//요청된 numPerPage 처리
 		//요청이 있으면 처리가 되지만 그렇지 않으면 기본 10개 세팅이 된다.
 		if(request.getParameter("numPerPage")!=null){

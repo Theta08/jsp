@@ -9,28 +9,19 @@ public class BankbookDTO {
 	private String bname;
 	private int bpassword;
 	private String bdate;
-	private UserDTO userID;
-	//private String userID;
+	//외래키 
+	private UserDTO userID=null;
 	
-
-
 	public BankbookDTO() {super();}
 	
 
-
-	/*
-	 * public BankbookDTO(int bnumber, String bname, int bpassword, String bdate) {
-	 * this.bnumber = bnumber; this.bname = bname; this.bpassword = bpassword;
-	 * this.bdate = bdate; }
-	 */
-
-	public BankbookDTO(int bnumber, String bname, int bpassword, String bdate, UserDTO userID) {
+	public BankbookDTO(int bnumber, String bname, int bpassword, UserDTO userID, String bdate) {
 		super();
 		this.bnumber = bnumber;
 		this.bname = bname;
 		this.bpassword = bpassword;
-		this.bdate = bdate;
 		this.userID = userID;
+		this.bdate = bdate;
 	}
 
 

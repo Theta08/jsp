@@ -8,12 +8,16 @@ import java.text.SimpleDateFormat;
 
 import com.bit.dto.BankbookDTO;
 import com.bit.util.DBConnecion;
+import com.bit.util.DBConnectionMgr;
 
 
 public class BankbookDAO {
 	
-	//싱글패턴? 게시판 리스트
-	private static BankbookDAO instance;
+	private DBConnectionMgr pool;
+	
+	public BankbookDAO() {
+		pool = DBConnectionMgr.getInstance();
+	}
 	
 	//DB연결 닫기
 	private void closeAll(ResultSet rs, PreparedStatement pstmt, Connection conn) {
@@ -44,20 +48,20 @@ public class BankbookDAO {
 		
 		try {
 			//db연결
-			conn=DBConnecion.getConnection();
+			conn=pool.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, bankbook.getBnumber());
 			pstmt.setString(2,bankbook.getBname() );
 			pstmt.setInt(3,bankbook.getBpassword() );
 			//외래키 userDTO_userid 가지고온다.
-//			pstmt.setString(4,bankbook.getUserID().getUserID());
 			//오류 값이 안읽어와짐
-			pstmt.setString(4,bankbook.getUserID().getUserID());
+			pstmt.setString(4,bankbook.getUserID().getUserID());		
+//			pstmt.setString(4,"a");
 			pstmt.setString(5, sdf.format(timestamp));
 			return pstmt.executeUpdate();		//실제 영향받은 데이터 반환
 		}catch (Exception e) {
 			e.printStackTrace();
-		} finally {closeAll(rs,pstmt,conn);}
+		} finally {pool.freeConnection(conn, pstmt, rs);}	//db종료
 		
 		return -1;
 	}

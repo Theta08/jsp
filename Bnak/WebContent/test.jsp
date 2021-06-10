@@ -8,27 +8,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input type="button" value="버튼" onclick="showEvent()">
-<input    id="test" value="test1" type="text" class="inputbox" size="20" /><br>
-<input    id="test1" value="test1" type="text" class="inputbox" size="20" /><br>
+<div class="container mt-3" style="max-width: 560px">
+		<form method="post" action="testAction.jsp">
+			<div class="form-group">
+				<label>아이디</label>
+				<input type="text" name="id" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>비밀번호</label>
+				<input type="password" name="pw" class="form-control">
+			</div>
+			
+			<div class="form-group">
+				<label>user</label>
+				<input type="text" name="user" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>com</label>
+				<input type="password" name="com" class="form-control">
+			</div>
+			
+			<button type="submit" class="btn btn-lg btn-primary btn-block">로그인</button>
+		</form>
+</div>
 
-    <script>
-        function showEvent() {
-        	var i=Math.floor((Math.random()*10));
-        	var myArray1 = new Array();
-        	var v="";
-        	for (var i=0;i<5;i++){
-        		var a=(Math.floor((Math.random()*10))).toString();
-        		myArray1.push(a);
-        		v+=myArray1[i];
-        		console.log(""+myArray1[i]);
-        		console.log("v:"+v);
-        	}
-        	console.log(""+myArray1[i]);
-        	console.log(myArray1.length);
-        	
-        	document.getElementById("test1").value = ''+v
-        }
-    </script>
 </body>
 </html>

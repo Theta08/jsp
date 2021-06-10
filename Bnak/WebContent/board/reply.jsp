@@ -1,9 +1,9 @@
 <!-- reply.jsp -->
-<%@page contentType="text/html; charset=EUC-KR"%>
-<!-- read.jsp¿¡¼­ ¿ø±ÛÀ» session ÀúÀå -->
+<%@page contentType="text/html; charset=UTF-8"%>
+<!-- read.jspì—ì„œ ì›ê¸€ì„ session ì €ìž¥ -->
 <jsp:useBean id="bean" scope="session" class="board.BoardBean"/>
 <%
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		String nowPage = request.getParameter("nowPage");
 		String numPerPage = request.getParameter("numPerPage");
 		String subject = bean.getSubject();
@@ -19,7 +19,7 @@
 <br><br>
  <table width="600" cellpadding="3">
   <tr>
-   <td bgcolor="#CCCC00" height="21" align="center">´äº¯ÇÏ±â</td>
+   <td bgcolor="#CCCC00" height="21" align="center">ë‹µë³€í•˜ê¸°</td>
   </tr>
 </table>
 <form method="post" action="boardReply" >
@@ -28,26 +28,26 @@
   <td>
    <table>
     <tr>
-     <td width="20%">¼º ¸í</td>
+     <td width="20%">ì„± ëª…</td>
      <td width="80%">
 	  <input name="name" size="30" maxlength="20"></td>
     </tr>
     <tr>
-     <td>Á¦ ¸ñ</td>
+     <td>ì œ ëª©</td>
      <td>
-	  <input name="subject" size="50" value="´äº¯ : <%=subject%>" maxlength="50"></td> 
+	  <input name="subject" size="50" value="ë‹µë³€ : <%=subject%>" maxlength="50"></td> 
     </tr>
 	<tr>
-     <td>³» ¿ë</td>
+     <td>ë‚´ ìš©</td>
      <td>
 	  <textarea name="content" rows="12" cols="50">
       	<%=content %>
-      	========´äº¯ ±ÛÀ» ¾²¼¼¿ä.=======
+      	========ë‹µë³€ ê¸€ì„ ì“°ì„¸ìš”.=======
       	</textarea>
       </td>
     </tr>
     <tr>
-     <td>ºñ¹Ð ¹øÈ£</td> 
+     <td>ë¹„ë°€ ë²ˆí˜¸</td> 
      <td>
 	  <input type="password" name="pass" size="15" maxlength="15"></td> 
     </tr>
@@ -56,9 +56,9 @@
     </tr>
 	<tr> 
      <td colspan="2">
-	  <input type="submit" value="´äº¯µî·Ï" >
-      <input type="reset" value="´Ù½Ã¾²±â">
-      <input type="button" value="µÚ·Î" onClick="history.back()"></td>
+	  <input type="submit" value="ë‹µë³€ë“±ë¡" >
+      <input type="reset" value="ë‹¤ì‹œì“°ê¸°">
+      <input type="button" value="ë’¤ë¡œ" onClick="history.back()"></td>
     </tr> 
    </table>
   </td>

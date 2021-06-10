@@ -1,11 +1,11 @@
-<%@page contentType="application; charset=EUC-KR"%>
+<%@page contentType="application; charset=UTF-8"%>
 <%@page import="java.io.BufferedOutputStream"%>
 <%@page import="java.io.FileInputStream"%>
 <%@page import="java.io.BufferedInputStream"%>
 <%@page import="java.io.File"%>
 <%@page import="board.BoardMgr"%>
 <%
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		try{
 			String filename = request.getParameter("filename");
 			File file = new File(BoardMgr.SAVEFOLDER+
@@ -17,7 +17,7 @@
 			if (strClient.indexOf("Trident") > 0 || strClient.indexOf("MSIE") > 0) {
 				response.setContentType("application/smnet;charset=UTF-8");
 				response.setHeader("Content-Disposition", "filename="
-				+ new String(filename.getBytes("EUC-KR"),"8859_1") + ";");
+				+ new String(filename.getBytes("UTF-8"),"8859_1") + ";");
 			} else {
 				response.setContentType("application/smnet;charset=UTF-8");
 				response.setHeader("Content-Disposition",

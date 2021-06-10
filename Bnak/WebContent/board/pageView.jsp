@@ -1,15 +1,15 @@
 <!-- pageView.jsp -->
 <%@page import="board.UtilMgr"%>
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <%
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		int totalRecord = UtilMgr.parseInt(request, "totalRecord");
-		int numPerPage = 10;//ÆäÀÌÁö´ç ·¹ÄÚµå °³¼ö
-		int pagePerBlock = 15;//ºí·°´ç ÆäÀÌÁö °³¼ö
-		int totalPage = 0;//ÃÑ ÆäÀÌÁö °³¼ö
-		int totalBlock = 0;//ÃÑ ºí·° °³¼ö
-		int nowPage = 1;//ÇöÀç ÆäÀÌÁö
-		int nowBlock = 1;//ÇöÀç ºí·°
+		int numPerPage = 10;//íŽ˜ì´ì§€ë‹¹ ë ˆì½”ë“œ ê°œìˆ˜
+		int pagePerBlock = 15;//ë¸”ëŸ­ë‹¹ íŽ˜ì´ì§€ ê°œìˆ˜
+		int totalPage = 0;//ì´ íŽ˜ì´ì§€ ê°œìˆ˜
+		int totalBlock = 0;//ì´ ë¸”ëŸ­ ê°œìˆ˜
+		int nowPage = 1;//í˜„ìž¬ íŽ˜ì´ì§€
+		int nowBlock = 1;//í˜„ìž¬ ë¸”ëŸ­
 		
 		if(request.getParameter("nowPage")!=null){
 			nowPage = UtilMgr.parseInt(request, "nowPage");
@@ -23,7 +23,7 @@
 %>
 <html>
 <head>
-	<title>ÆäÀÌÂ¡ & ºí·° Ã³¸® Å×½ºÆ®</title>
+	<title>íŽ˜ì´ì§• & ë¸”ëŸ­ ì²˜ë¦¬ í…ŒìŠ¤íŠ¸</title>
 </head>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
@@ -39,7 +39,7 @@
 </script>
 <body bgcolor="#FFFFCC">
 <div align="center"><br/>
-<h2>ÆäÀÌÂ¡ & ºí·° Ã³¸® Å×½ºÆ®</h2>
+<h2>íŽ˜ì´ì§• & ë¸”ëŸ­ ì²˜ë¦¬ í…ŒìŠ¤íŠ¸</h2>
 <table>
 	<tr>
 		<td  width="700" align="center">
@@ -49,10 +49,10 @@
 		</td>
 	</tr>
 </table>
-<!-- °Ô½Ã¹° ¹øÈ£ Start -->
+<!-- ê²Œì‹œë¬¼ ë²ˆí˜¸ Start -->
 <table>
 	<tr>
-		<td>°Ô½Ã¹° ¹øÈ£ : &nbsp;</td>
+		<td>ê²Œì‹œë¬¼ ë²ˆí˜¸ : &nbsp;</td>
 		<%
 				int listSize = totalRecord - start;
 				for(int i=0;i<numPerPage;i++){
@@ -62,17 +62,17 @@
 		<%}//--for%>
 	</tr>
 </table>
-<!-- °Ô½Ã¹° ¹øÈ£ End -->
-<!-- ÆäÀÌÂ¡ ¹× ºí·° Start -->
+<!-- ê²Œì‹œë¬¼ ë²ˆí˜¸ End -->
+<!-- íŽ˜ì´ì§• ë° ë¸”ëŸ­ Start -->
 <table>
 	<tr>
 		<td>
 		<%if(totalPage>0){%>
-			<!-- ÀÌÀü ºí·° -->
+			<!-- ì´ì „ ë¸”ëŸ­ -->
 			<%if(nowBlock>1){ %>
 				<a href="javascript:block('<%=nowBlock-1%>')">prev...</a>
 			<%} %>
-			<!-- ÆäÀÌÂ¡ -->
+			<!-- íŽ˜ì´ì§• -->
 			<%
 					int pageStart = (nowBlock-1)*pagePerBlock+1;
 					int pageEnd = (pageStart+pagePerBlock)<totalPage?
@@ -85,7 +85,7 @@
 				<%if(nowPage==pageStart){%></font><%}%>
 				</a>
 			<%}//---for%>
-			<!-- ´ÙÀ½ ºí·° -->
+			<!-- ë‹¤ìŒ ë¸”ëŸ­ -->
 			<%if(totalBlock>nowBlock){ %>
 					<a href="javascript:block('<%=nowBlock+1%>')">...next</a>
 			<%} %>
@@ -93,7 +93,7 @@
 		</td>
 	</tr>
 </table>
-<!-- ÆäÀÌÂ¡ ¹× ºí·° End -->
+<!-- íŽ˜ì´ì§• ë° ë¸”ëŸ­ End -->
 <form name="readFrm">
 	<input type="hidden" name="totalRecord" value="<%=totalRecord%>">
 	<input type="hidden" name="nowPage" value="<%=nowPage%>">
@@ -110,7 +110,7 @@ nowBlock : <%=nowBlock%>&nbsp;
 start : <%=start%>&nbsp;
 </b>
 <p/>
-<input type="button" value="TotalRecord ÀÔ·ÂÆû"
+<input type="button" value="TotalRecord ìž…ë ¥í¼"
  onClick="javascript:location.href='pageView.html'">
 </div>
 </html>

@@ -105,17 +105,17 @@
 </header>
 <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">내 통장</h1>
+          <h1 class="display-3">통장</h1>
         </div>
 </div>
 <div class="container">
 	<table>
-		<tr>
+		<%-- <tr>
 			<td width="600">
 			Total : <%=totalRecord%>Articles(<font color="red">
 			<%=nowPage+"/"+totalPage%>Pages</font>)
 			</td>
-		</tr>
+		</tr> --%>
 	</table>
 			<div>
 				<div class="text-right">

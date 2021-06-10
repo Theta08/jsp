@@ -2,34 +2,34 @@
 <%@page import="board.BoardBean"%>
 <%@page import="java.util.Vector"%>
 <%@page import="board.UtilMgr"%>
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <jsp:useBean id="mgr" class="board.BoardMgr"/>
 <jsp:useBean id="cmgr" class="board.BCommentMgr"/>
 <%
 		request.setCharacterEncoding("UTF-8");
-		int totalRecord = 0;//ÃÑ°Ô½Ã¹°¼ö
-		int numPerPage = 10;//ÆäÀÌÁö´ç ·¹ÄÚµå °³¼ö(5,10,15,30)
-		int pagePerBlock = 15;//ºí·°´ç ÆäÀÌÁö °³¼ö
-		int totalPage = 0;//ÃÑ ÆäÀÌÁö °³¼ö
-		int totalBlock = 0;//ÃÑ ºí·° °³¼ö
-		int nowPage = 1;//ÇöÀç ÆäÀÌÁö
-		int nowBlock = 1;//ÇöÀç ºí·°
+		int totalRecord = 0;//ì´ê²Œì‹œë¬¼ìˆ˜
+		int numPerPage = 10;//í˜ì´ì§€ë‹¹ ë ˆì½”ë“œ ê°œìˆ˜(5,10,15,30)
+		int pagePerBlock = 15;//ë¸”ëŸ­ë‹¹ í˜ì´ì§€ ê°œìˆ˜
+		int totalPage = 0;//ì´ í˜ì´ì§€ ê°œìˆ˜
+		int totalBlock = 0;//ì´ ë¸”ëŸ­ ê°œìˆ˜
+		int nowPage = 1;//í˜„ì¬ í˜ì´ì§€
+		int nowBlock = 1;//í˜„ì¬ ë¸”ëŸ­
 		
-		//¿äÃ»µÈ numPerPage Ã³¸®
-		//¿äÃ»ÀÌ ÀÖÀ¸¸é Ã³¸®°¡ µÇÁö¸¸ ±×·¸Áö ¾ÊÀ¸¸é ±âº» 10°³ ¼¼ÆÃÀÌ µÈ´Ù.
+		//ìš”ì²­ëœ numPerPage ì²˜ë¦¬
+		//ìš”ì²­ì´ ìˆìœ¼ë©´ ì²˜ë¦¬ê°€ ë˜ì§€ë§Œ ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ê¸°ë³¸ 10ê°œ ì„¸íŒ…ì´ ëœë‹¤.
 		if(request.getParameter("numPerPage")!=null){
 			numPerPage = UtilMgr.parseInt(request, "numPerPage");
 		}
 		
-		//°Ë»ö¿¡ ÇÊ¿äÇÑ º¯¼ö
+		//ê²€ìƒ‰ì— í•„ìš”í•œ ë³€ìˆ˜
 		String keyField = "", keyWord = "";
-		//°Ë»öÀÏ¶§
+		//ê²€ìƒ‰ì¼ë•Œ
 		if(request.getParameter("keyWord")!=null){
 			keyField = request.getParameter("keyField");
 			keyWord = request.getParameter("keyWord");
 		}
 		
-		//°Ë»ö ÈÄ¿¡ ´Ù½Ã Ã³À½È­¸é ¿äÃ»
+		//ê²€ìƒ‰ í›„ì— ë‹¤ì‹œ ì²˜ìŒí™”ë©´ ìš”ì²­
 		if(request.getParameter("reload")!=null&&
 				request.getParameter("reload").equals("true")){
 			keyField = ""; keyWord = "";
@@ -38,20 +38,20 @@
 		totalRecord = mgr.getTotalCount(keyField, keyWord);
 		//out.print("totalRecord : " + totalRecord);
 		
-		//nowPage ¿äÃ» Ã³¸®
+		//nowPage ìš”ì²­ ì²˜ë¦¬
 		if(request.getParameter("nowPage")!=null){
 			nowPage = UtilMgr.parseInt(request, "nowPage");
 		}
 		
-		//sql¹®¿¡ µé¾î°¡´Â start, cnt ¼±¾ğ
+		//sqlë¬¸ì— ë“¤ì–´ê°€ëŠ” start, cnt ì„ ì–¸
 		int start = (nowPage*numPerPage)-numPerPage;
 		int cnt = numPerPage;
 		
-		//ÀüÃ¼ÆäÀÌÁö °³¼ö
+		//ì „ì²´í˜ì´ì§€ ê°œìˆ˜
 		totalPage = (int)Math.ceil((double)totalRecord/numPerPage);
-		//ÀüÃ¼ºí·° °³¼ö
+		//ì „ì²´ë¸”ëŸ­ ê°œìˆ˜
 		 totalBlock = (int)Math.ceil((double)totalPage/pagePerBlock);
-		//ÇöÀçºí·°
+		//í˜„ì¬ë¸”ëŸ­
 		nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock);
 %>
 <html>
@@ -61,7 +61,7 @@
 <script type="text/javascript">
 	function check() {
 		if(document.searchFrm.keyWord.value==""){
-			alert("°Ë»ö¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			document.searchFrm.keyWord.focus();
 			return;
 		}
@@ -84,8 +84,8 @@
 		document.readFrm.numPerPage.value = numPerPage;
 		document.readFrm.submit();
 	}
-	//list.jsp¿¡¼­ read.jsp·Î ¿äÃ»ÀÌ µÉ¶§ ±âÁ¸¿¡ Á¶°Ç °°ÀÌ ³Ñ¾î°¨.
-	//±âÁ¸ Á¶°Ç : keyField,keyWord,nowPage,numPerPage
+	//list.jspì—ì„œ read.jspë¡œ ìš”ì²­ì´ ë ë•Œ ê¸°ì¡´ì— ì¡°ê±´ ê°™ì´ ë„˜ì–´ê°.
+	//ê¸°ì¡´ ì¡°ê±´ : keyField,keyWord,nowPage,numPerPage
 	function read(num) {
 		document.readFrm.num.value = num;
 		document.readFrm.action = "read.jsp";
@@ -106,10 +106,10 @@
 			<form name="npFrm" method="post">
 				<select name="numPerPage" size="1" 
 				onchange="numPerFn(this.form.numPerPage.value)">
-    				<option value="5">5°³ º¸±â</option>
-    				<option value="10" selected>10°³ º¸±â</option>
-    				<option value="15">15°³ º¸±â</option>
-    				<option value="30">30°³ º¸±â</option>
+    				<option value="5">5ê°œ ë³´ê¸°</option>
+    				<option value="10" selected>10ê°œ ë³´ê¸°</option>
+    				<option value="15">15ê°œ ë³´ê¸°</option>
+    				<option value="30">30ê°œ ë³´ê¸°</option>
    				</select>
    			</form>
    			<script>document.npFrm.numPerPage.value=<%=numPerPage%></script>
@@ -122,31 +122,31 @@
 		<%
 				Vector<BoardBean> vlist = 
 				mgr.getBoardList(keyField, keyWord, start, cnt);
-				int listSize = vlist.size();//ºê¶ó¿ìÀú È­¸é¿¡ Ç¥½ÃµÉ °Ô½Ã¹° ¹øÈ£
+				int listSize = vlist.size();//ë¸Œë¼ìš°ì € í™”ë©´ì— í‘œì‹œë  ê²Œì‹œë¬¼ ë²ˆí˜¸
 				if(vlist.isEmpty()){
-					out.println("µî·ÏµÈ °Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù.");
+					out.println("ë“±ë¡ëœ ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤.");
 				}else{
 		%>
 			<table cellspacing="0">
 				<tr align="center" bgcolor="#D0D0D0">
-					<td width="100">¹ø È£</td>
-					<td width="250">Á¦ ¸ñ</td>
-					<td width="100">ÀÌ ¸§</td>
-					<td width="150">³¯ Â¥</td>
-					<td width="100">Á¶È¸¼ö</td>
+					<td width="100">ë²ˆ í˜¸</td>
+					<td width="250">ì œ ëª©</td>
+					<td width="100">ì´ ë¦„</td>
+					<td width="150">ë‚  ì§œ</td>
+					<td width="100">ì¡°íšŒìˆ˜</td>
 				</tr>
 		<%
 				for(int i=0;i<numPerPage;i++){
 					if(i==listSize) break;
 					BoardBean bean = vlist.get(i);
-					int num = bean.getNum();//°Ô½Ã¹° ¹øÈ£
-					String subject = bean.getSubject();//Á¦¸ñ
-					String name = bean.getName();//ÀÌ¸§
-					String regdate = bean.getRegdate();//³¯Â¥
-					int depth = bean.getDepth();//´äº¯ÀÇ ±íÀÌ
-					int count = bean.getCount();//Á¶È¸¼ö
-					String filename = bean.getFilename();//Ã·ºÎÆÄÀÏ
-					//´ñ±Û count
+					int num = bean.getNum();//ê²Œì‹œë¬¼ ë²ˆí˜¸
+					String subject = bean.getSubject();//ì œëª©
+					String name = bean.getName();//ì´ë¦„
+					String regdate = bean.getRegdate();//ë‚ ì§œ
+					int depth = bean.getDepth();//ë‹µë³€ì˜ ê¹Šì´
+					int count = bean.getCount();//ì¡°íšŒìˆ˜
+					String filename = bean.getFilename();//ì²¨ë¶€íŒŒì¼
+					//ëŒ“ê¸€ count
 					int bcount = cmgr.getBCommentCount(num);
 		%>
 				<tr align="center">
@@ -175,13 +175,13 @@
 	</tr>
 	<tr>
 		<td>
-		<!-- ÆäÀÌÂ¡ ¹× ºí·° Start -->
+		<!-- í˜ì´ì§• ë° ë¸”ëŸ­ Start -->
 				<%if(totalPage>0){%>
-			<!-- ÀÌÀü ºí·° -->
+			<!-- ì´ì „ ë¸”ëŸ­ -->
 			<%if(nowBlock>1){ %>
 				<a href="javascript:block('<%=nowBlock-1%>')">prev...</a>
 			<%} %>
-			<!-- ÆäÀÌÂ¡ -->
+			<!-- í˜ì´ì§• -->
 			<%
 					int pageStart = (nowBlock-1)*pagePerBlock+1;
 					int pageEnd = (pageStart+pagePerBlock)<totalPage?
@@ -194,16 +194,16 @@
 				<%if(nowPage==pageStart){%></font><%}%>
 				</a>
 			<%}//---for%>
-			<!-- ´ÙÀ½ ºí·° -->
+			<!-- ë‹¤ìŒ ë¸”ëŸ­ -->
 			<%if(totalBlock>nowBlock){ %>
 					<a href="javascript:block('<%=nowBlock+1%>')">...next</a>
 			<%} %>
 		<%}//---if1%>
-		<!-- ÆäÀÌÂ¡ ¹× ºí·° End -->
+		<!-- í˜ì´ì§• ë° ë¸”ëŸ­ End -->
 		</td>
 		<td align="right">
-			<a href="post.jsp">[±Û¾²±â]</a>
-			<a href="javascript:list()">[Ã³À½À¸·Î]</a>
+			<a href="post.jsp">[ê¸€ì“°ê¸°]</a>
+			<a href="javascript:list()">[ì²˜ìŒìœ¼ë¡œ]</a>
 		</td>
 	</tr>
 </table>
@@ -214,12 +214,12 @@
  		<tr>
   			<td align="center" valign="bottom">
    				<select name="keyField" size="1" >
-    				<option value="name"> ÀÌ ¸§</option>
-    				<option value="subject"> Á¦ ¸ñ</option>
-    				<option value="content"> ³» ¿ë</option>
+    				<option value="name"> ì´ ë¦„</option>
+    				<option value="subject"> ì œ ëª©</option>
+    				<option value="content"> ë‚´ ìš©</option>
    				</select>
    				<input size="16" name="keyWord">
-   				<input type="button"  value="Ã£±â" onClick="javascript:check()">
+   				<input type="button"  value="ì°¾ê¸°" onClick="javascript:check()">
    				<input type="hidden" name="nowPage" value="1">
   			</td>
  		</tr>

@@ -1,3 +1,4 @@
+<%@page import="com.bit.dto.UserDTO"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.bit.dao.BankbookDAO"%>
 <%@page import="com.bit.dto.BankbookDTO"%>
@@ -9,13 +10,17 @@
 	String bname=request.getParameter("bname");
 	String userID=(String)session.getAttribute("userID");
 	
+	
 	int bnumber=Integer.parseInt(request.getParameter("bnumber"));
 	int password=Integer.parseInt(request.getParameter("bpassword"));
 
-	//@수정 필요
-	//이름의 로그인시 이름으로 만들어야함 외래키 사용해야함 
+	//외래키 가져오기
+	UserDTO userID_=new UserDTO();
+	userID_.setUserID(userID);
+	
 	BankbookDAO bankbook=new BankbookDAO();
-	int result=bankbook.makeBankBook(new BankbookDTO(bnumber,bname,password,userID,null));
+	int result=bankbook.makeBankBook(new BankbookDTO(bnumber,bname,password,userID_,null));
+	//public BankbookDTO(int bnumber, String bname, int bpassword, UserDTO userID, String bdate)
  
 	//통장 만들기
 	if(result==1){
