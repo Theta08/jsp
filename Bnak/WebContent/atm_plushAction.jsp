@@ -13,8 +13,7 @@
 	//입금한 금액
 	int money=Integer.parseInt(request.getParameter("bn_plus"));	
 	String note=request.getParameter("bn_commit");
-	
-	
+
 	//총 금액
 	int max=0;
 	max+=money;

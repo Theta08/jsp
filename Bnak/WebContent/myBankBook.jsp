@@ -196,7 +196,10 @@
 						</td>
 						<td><%=name%></td>
 						<td><%=pw %>
-						<td><%=regdate%></td>
+						<td>
+							<%=regdate%>
+							<input/>
+						</td>
 					</tr>
 				
 		<%			}//---for%>				

@@ -23,7 +23,7 @@
 		<label>계좌번호</label>
 		<div class="form-row">
 			<div class="form-group col-sm-8">
-				<input type="text" name="bn_number" placeholder="계좌번호를  적어주세요" class="form-control" maxlength="10">
+				<input type="text" name="bn_number" id="bnumber" placeholder="계좌번호를  적어주세요" class="form-control" maxlength="10">
 			</div>
 			<div class="form-group col-sm-2">
 				<button type="button" class="btn btn-primary " onclick="makeRandBtn()">
@@ -49,4 +49,25 @@
 	</div>
 
 </body>
+<script>
+//빈칸 검사
+	function cheak(){
+		if (!document.bank_get.bn_number.value) {
+			alert("계좌번호를 적어주세요.");
+			return false;
+		}
+	
+	 	if (!document.bank_get.bn_plus.value) {
+			alert("금액을 적어주세요");
+			return false;
+		}
+	 	
+	 	
+	}
+	function makeRandBtn(){
+		//alert("btn cheak");
+	   var num=Number(document.getElementById("bnumber").value);
+	   console.log('가져온 텍스트:', num+5);
+	}
+</script>
 </html>

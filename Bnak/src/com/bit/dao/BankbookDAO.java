@@ -66,5 +66,28 @@ public class BankbookDAO {
 		return -1;
 	}
 	
+	//통장번호 확인 //? 오류
+	public void numberCheck(BankbookDTO bankbook,int number) {
+		String sql="select * from tbl_bank WHERE bnumber= ?;";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try {
+			//db연결
+			conn=pool.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bankbook.getBnumber());
+			
+			rs=pstmt.executeQuery();		//select
+		
+			int test=rs.getInt("bnumber");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {pool.freeConnection(conn, pstmt, rs);}	//db종료
+		
+		
+	}
 
 }
