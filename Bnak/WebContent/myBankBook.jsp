@@ -4,7 +4,6 @@
 <%@page import="com.bit.util.UtilMgr"%>
 <%@page import="java.util.Vector"%>
 <jsp:useBean id="mgr" class="com.bit.board.BoardMgr"/>
-<jsp:useBean id="cmgr" class="board.BCommentMgr"/>
 <%@ page import="java.util.*"%>
 <%
 		request.setCharacterEncoding("UTF-8");
@@ -177,9 +176,9 @@
 				for(int i=0;i<numPerPage;i++){
 					if(i==listSize) break;
 					BankbookDTO bean = vlist.get(i);
-					int num = bean.getBnumber();//게시물 번호
-					String name = bean.getBname();//이름
-					int pw = bean.getBpassword();//답변의 깊이
+					int bnumber = bean.getBnumber();//번호
+					String bname = bean.getBname();//이름
+					int pw = bean.getBpassword();// 비밀번호
 					String regdate = bean.getBdate();//날짜
 					//댓글 count
 					//int bcount = cmgr.getBCommentCount(num);
@@ -189,16 +188,16 @@
 						<td><%=totalRecord-start-i%></td>
 						<td align="center">
 							<%-- <%for(int j=0;j<depth;j++){out.println("&nbsp;&nbsp;");} %> --%>
-							<a href="javascript:read('<%=num%>')"><%=num%></a>
+							<a href="javascript:read('<%=bnumber%>')"><%=bnumber%></a>
 							<%-- <%if(bcount>0){%>
 								<font color="red">(<%=bcount%>)</font>
 							<%}%> --%>
 						</td>
-						<td><%=name%></td>
+						<td><%=bname%></td>
 						<td><%=pw %>
 						<td>
 							<%=regdate%>
-							<input/>
+							<input type="button" value="삭제" onclick="location.href='myBankBookDelete.jsp?bnumber=<%=bnumber%>'"/>
 						</td>
 					</tr>
 				

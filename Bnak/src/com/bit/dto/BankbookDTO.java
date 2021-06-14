@@ -4,7 +4,6 @@ package com.bit.dto;
 
 public class BankbookDTO {
 	
-	//수정 필요
 	private int bnumber;
 	private String bname;
 	private int bpassword;

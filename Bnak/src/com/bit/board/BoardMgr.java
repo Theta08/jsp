@@ -1,4 +1,5 @@
 package com.bit.board;
+import java.io.File;
 //myBankBook.jsp 리스트
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +9,11 @@ import java.util.Vector;
 
 
 import com.bit.dto.BankbookDTO;
+import com.bit.dto.UserDTO;
 import com.bit.util.DBConnectionMgr;
+
+import board.BoardBean;
+import board.UtilMgr;
 
 
 public class BoardMgr {
@@ -104,23 +109,53 @@ public class BoardMgr {
 		return vlist;
 	}
 	
-	/*
-	 * //Board Get : 한개의 게시물, 13개 컬럼 모두 리턴 public BankbookDTO getBoard(int num) {
-	 * Connection con = null; PreparedStatement pstmt = null; ResultSet rs = null;
-	 * String sql = null; BankbookDTO bean = new BankbookDTO(); try { con =
-	 * pool.getConnection(); sql = "select * from tblBoard where num = ?"; pstmt =
-	 * con.prepareStatement(sql); pstmt.setInt(1, num); rs = pstmt.executeQuery();
-	 * if(rs.next()) { bean.setNum(rs.getInt("num"));
-	 * bean.setName(rs.getString("name")); bean.setSubject(rs.getString("subject"));
-	 * bean.setContent(rs.getString("content")); bean.setPos(rs.getInt("pos"));
-	 * bean.setRef(rs.getInt("ref")); bean.setDepth(rs.getInt("depth"));
-	 * bean.setRegdate(rs.getString("regdate")); bean.setPass(rs.getString("pass"));
-	 * bean.setIp(rs.getString("ip")); bean.setCount(rs.getInt("count"));
-	 * bean.setFilename(rs.getString("filename"));
-	 * bean.setFilesize(rs.getInt("filesize")); } } catch (Exception e) {
-	 * e.printStackTrace(); } finally { pool.freeConnection(con, pstmt, rs); }
-	 * return bean; }
-	 */
+	//Board Get : 한개의 게시물, 13개 컬럼 모두 리턴
+		public BankbookDTO getBoard(int num) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			BankbookDTO bean = new BankbookDTO();
+			try {
+				con = pool.getConnection();
+				sql = "select * from tbl_bank where bnumber = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					bean.setBnumber(rs.getInt("bnumber"));
+					bean.setBname(rs.getString("bnanme"));
+					bean.setBpassword(rs.getInt("bpassworld"));
+					
+					bean.setBdate(rs.getString("bdate"));
+					
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				pool.freeConnection(con, pstmt, rs);
+			}
+			return bean;
+		}
+	
+	
+	//Board Delete : 업로드 파일 삭제
+	public void deleteBoard(int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "delete from tbl_bank where bnumber=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+	}
 	
 }
 

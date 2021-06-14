@@ -10,7 +10,7 @@
 	String bname=request.getParameter("bname");
 	String userID=(String)session.getAttribute("userID");
 	
-	
+	//삭제시 tbl_bankbooknumber에있는거도 삭제시키게 해야함  오류남(외레키)
 	int bnumber=Integer.parseInt(request.getParameter("bnumber"));
 	int password=Integer.parseInt(request.getParameter("bpassword"));
 

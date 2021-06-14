@@ -1,10 +1,11 @@
 <!-- read.jsp -->
+<%@page import="com.bit.dto.BankbookDTO"%>
 <%@page import="java.util.Vector"%>
 <%@page import="board.BCommentBean"%>
 <%@page import="board.BoardBean"%>
 <%@page import="board.UtilMgr"%>
 <%@page contentType="text/html; charset=UTF-8"%>
-<jsp:useBean id="mgr" class="board.BoardMgr"/>
+<jsp:useBean id="mgr" class="com.bit.board.BoardMgr"/>
 <jsp:useBean id="cmgr" class="board.BCommentMgr"/>
 <%
 		request.setCharacterEncoding("UTF-8");
@@ -29,18 +30,12 @@
 			}
 		}else{
 			//조회수 증가 : list.jsp 게시물 읽어옴.
-			mgr.upCount(num);
+			//mgr.upCount(num);
 		}
 		
-		BoardBean bean = mgr.getBoard(num);
-		String name = bean.getName();
-		String subject = bean.getSubject();
-		String regdate = bean.getRegdate();
-		String content = bean.getContent();
-		String filename = bean.getFilename();
-		int filesize = bean.getFilesize();
-		String ip = bean.getIp();
-		int count = bean.getCount();
+		BankbookDTO bean = mgr.getBoard(num);
+		String name = bean.getBname();
+
 		//읽어온 게시물을 수정 및 삭제를 위해 세션저장
 		session.setAttribute("bean", bean);
 %>
@@ -85,28 +80,15 @@
   <td align="center" bgcolor="#DDDDDD" width="10%"> 이 름 </td>
   <td bgcolor="#FFFFE8"><%=name%></td>
   <td align="center" bgcolor="#DDDDDD" width="10%"> 등록날짜 </td>
-  <td bgcolor="#FFFFE8"><%=regdate%></td>
+  <%-- <td bgcolor="#FFFFE8"><%=regdate%></td> --%>
  </tr>
  <tr> 
     <td align="center" bgcolor="#DDDDDD"> 제 목</td>
-    <td bgcolor="#FFFFE8" colspan="3"><%=subject%></td>
+    <%-- <td bgcolor="#FFFFE8" colspan="3"><%=bname%></td> --%>
    </tr>
-   <tr> 
-     <td align="center" bgcolor="#DDDDDD">첨부파일</td>
-     <td bgcolor="#FFFFE8" colspan="3">
-    	<%if(filename!=null&&!filename.equals("")){%>
-    		<a href="javascript:down('<%=filename%>')"><%=filename%></a>
-    		<font color="blue">(<%=UtilMgr.intFormat(filesize)%>bytes)</font>
-    	<%}else{out.println("첨부된 파일이 없습니다.");}%>
-     </td>
-   </tr>
-   <tr> 
-    <td colspan="4"><br/><pre><%=content%></pre><br/></td>
-   </tr>
+
    <tr>
-    <td colspan="4" align="right">
-     <%=ip%>로 부터 글을 남기셨습니다./  조회수  <%=count%>
-    </td>
+
    </tr>
    </table>
   </td>
