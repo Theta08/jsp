@@ -5,6 +5,7 @@ public class BankBookNumberDTO {
 	//외래키
 	private BankbookDTO bankbook;
 	
+	private int bn_id;
 	private int bn_plus=0;
 	private int bn_minus=0;
 	private int bn_sum=0;
@@ -28,6 +29,18 @@ public class BankBookNumberDTO {
 		this.bn_commit = bn_commit;
 		this.bn_date = bn_date;
 	}
+	
+	
+	public int getBn_id() {
+		return bn_id;
+	}
+
+
+	public void setBn_id(int bn_id) {
+		this.bn_id = bn_id;
+	}
+
+
 	public BankbookDTO getBankbook() {
 		return bankbook;
 	}
