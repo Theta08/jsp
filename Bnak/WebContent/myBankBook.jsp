@@ -239,8 +239,8 @@
 			</table>
 			</div>
 			<div class="text-right">
-					<a href="post.jsp">[글쓰기]</a>
-					<a href="myBankBook.jsp" class="btn btn-success">처음으로</a>
+					<!-- <a href="post.jsp">[글쓰기]</a> -->
+					<a href="index.jsp" class="btn btn-success">home</a>
 			</div>
 
 			<hr>

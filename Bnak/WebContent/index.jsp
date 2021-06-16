@@ -19,7 +19,6 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">입출금 은행 만들기</h1>
-          <h2>${userID}</h2>
           <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
           <p><jsp:include page="makeBankBook.jsp"/></p>
         </div>
@@ -28,22 +27,17 @@
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
-          <div class="col-md-3">
-            <h2>통장만들기<p>(경매생각중..)</p></h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-          </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h2>돈 보내기</h2>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-secondary" href="atm_minus.jsp" role="button">View details »</a></p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h2>돈 입금하기</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
             <p><a class="btn btn-secondary" href="atm_plush.jsp" role="button">View details »</a></p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h2>내 통장</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
             <p><a class="btn btn-secondary" href="#" role="button" onclick="checkForm()">View details »</a></p>

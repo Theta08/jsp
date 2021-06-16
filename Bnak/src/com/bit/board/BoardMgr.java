@@ -1,19 +1,13 @@
 package com.bit.board;
-import java.io.File;
 //myBankBook.jsp 리스트
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
 
-
-
+import com.bit.dto.BankBookNumberDTO;
 import com.bit.dto.BankbookDTO;
-import com.bit.dto.UserDTO;
 import com.bit.util.DBConnectionMgr;
-
-import board.BoardBean;
-import board.UtilMgr;
 
 
 public class BoardMgr {
@@ -109,37 +103,96 @@ public class BoardMgr {
 		return vlist;
 	}
 	
-	//Board Get : 한개의 게시물, 13개 컬럼 모두 리턴
-		public BankbookDTO getBoard(int num) {
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = null;
-			BankbookDTO bean = new BankbookDTO();
-			try {
-				con = pool.getConnection();
-				sql = "select * from tbl_bank where bnumber = ?";
+	
+	//======계좌번호 내역 상세보기==========
+	//Board Total Count : 총 게시물수
+	public int getTotalCount2(String keyField, String keyWord,int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int totalCount = 0;
+		try {
+			con = pool.getConnection();
+			if(keyWord.trim().equals("")||keyWord==null) {
+				//검색이 아닌경우
+				sql = "select count(*) from tbl_bankbooknumber where bn_number LIKE ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, num);
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					bean.setBnumber(rs.getInt("bnumber"));
-					bean.setBname(rs.getString("bnanme"));
-					bean.setBpassword(rs.getInt("bpassworld"));
-					
-					bean.setBdate(rs.getString("bdate"));
-					
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				pool.freeConnection(con, pstmt, rs);
+			}else {
+				//검색인 경우
+				sql = "select count(*) from tbl_bankbooknumber where " 
+				+ keyField +" like ? and bn_number LIKE ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+keyWord+"%");
+				pstmt.setInt(2, num);
 			}
-			return bean;
+			rs = pstmt.executeQuery();
+			if(rs.next()) totalCount = rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
 		}
+		return totalCount;
+	}
+
+	//계좌번호 리스트
+	public Vector<BankBookNumberDTO> getBankBookBoardList(String keyField, 
+			String keyWord,int start, int cnt,int num){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		Vector<BankBookNumberDTO> vlist = new Vector<BankBookNumberDTO>();
+		try {
+			con = pool.getConnection();
+			if(keyWord.trim().equals("")||keyWord==null) {
+				//검색이 아닌경우 게시판 정렬 (날짜순)
+				sql = "select * from tbl_bankbooknumber where bn_number LIKE ? order by bn_idx desc "
+						+ "limit ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				pstmt.setInt(2, start);
+				pstmt.setInt(3, cnt);
+			}else {
+				//검색인 경우
+				sql = "select * from tbl_bankbooknumber where " + keyField 
+						+" like ? and bn_number LIKE ? limit ?,?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1,"%"+keyWord+"%");
+				pstmt.setInt(2, num);
+				pstmt.setInt(3, start);
+				pstmt.setInt(4, cnt);
+			}
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BankBookNumberDTO bank = new BankBookNumberDTO();
+				
+				BankbookDTO bm=new BankbookDTO();
+				bm.setBnumber(rs.getInt("bn_number"));
+				
+				bank.setBankbook(bm);
+				bank.setBn_minus(rs.getInt("bn_minus"));
+				bank.setBn_plus(rs.getInt("bn_plus"));
+				bank.setBn_sum(rs.getInt("bn_sum"));
+				bank.setBn_commit(rs.getString("bn_commit"));
+				bank.setBn_date(rs.getString("bn_date"));
+				
+				vlist.addElement(bank);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return vlist;
+	}
+	
+
 	
 	
-	//Board Delete : 업로드 파일 삭제
+	//BankBook Delete : 파일 삭제
 	public void deleteBoard(int num) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
