@@ -19,7 +19,7 @@
 		int nowBlock = 1;//현재 블럭
 				
 		//로그인 id
-		String userID=(String)session.getAttribute("userID");
+		//String userID=(String)session.getAttribute("userID");
 		//계좌번호?_test
 		int num = UtilMgr.parseInt(request, "num");	
 		//int num=20408;
@@ -147,7 +147,7 @@ function check() {
 				  			<td align="center" valign="bottom">
 				   				<select name="keyField" size="1" >
 				    				<!-- <option value="bn_"> 이 름</option> -->
-				    				<option value="bn_date"> 날짜</option>
+				    				<option value="bn_date">날짜</option>
 				    				<option value="bn_commit"> 메모</option>
 				   				</select>
 				   				<input size="20" name="keyWord">
@@ -266,14 +266,14 @@ function check() {
 		<input type="hidden" name="reload" value="true">
 		<input type="hidden" name="nowPage" value="1">
 	</form>
-	
+ 	
 	<form name="readFrm">
 		<input type="hidden" name="nowPage" value="<%=nowPage%>">
 		<input type="hidden" name="numPerPage" value="<%=numPerPage%>">
 		<input type="hidden" name="keyField" value="<%=keyField%>">
 		<input type="hidden" name="keyWord" value="<%=keyWord%>">
-		<input type="hidden" name="num">
-	</form>
+		<input type="hidden" name="num" value="<%=num%>">
+	</form> 
 </div>
 </body>
 </html>

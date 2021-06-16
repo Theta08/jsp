@@ -213,6 +213,7 @@
 						<!-- 이전 블럭 -->
 						<%if(nowBlock>1){ %>
 							<a href="javascript:block('<%=nowBlock-1%>')">prev...</a>
+							
 						<%} %>
 						<!-- 페이징 -->
 						<%
