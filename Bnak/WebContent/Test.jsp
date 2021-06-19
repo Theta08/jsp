@@ -7,13 +7,13 @@
     
     
  <%
- 	BankBookNumberDAO bnum=new BankBookNumberDAO();
+  	BankBookNumberDAO bnum=new BankBookNumberDAO();
 	String a="a";
 	UserDTO user=bnum.getBankBook2(a);
 	String id=user.getUserID();
 	String pw=user.getUserPW();
 	String name=user.getUserName();
-	String date=user.getDate();
+	String date=user.getDate(); 
  	
 	int n=27475;
 	

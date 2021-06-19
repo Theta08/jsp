@@ -1,3 +1,5 @@
+<%@page import="com.bit.dto.BankBookNumberDTO"%>
+<%@page import="com.bit.dao.BankBookNumberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="com.bit.dto.BankbookDTO"%>
@@ -34,7 +36,7 @@
 		
 		//검색 후에 다시 처음화면 요청
 		if(request.getParameter("reload")!=null&&
-				request.getParameter("reload").equals("true")){
+			request.getParameter("reload").equals("true")){
 			keyField = ""; keyWord = "";
 		}
 		
@@ -139,7 +141,6 @@
 				   				<select name="keyField" size="1" >
 				    				<option value="bname"> 이 름</option>
 				    				<option value="bnumber"> 계좌번호</option>
-				    				<option value="content"> 내 용</option>
 				   				</select>
 				   				<input size="20" name="keyWord">
 				   				<input type="button"  value="찾기"  class="btn btn-primary" onClick="javascript:check()">
@@ -169,6 +170,7 @@
 						<th>번호</th>
 						<th>계좌번호</th>
 						<th>이름</th>
+						<th>금액</th>
 						<th>비밀번호</th>
 						<th>날 짜</th>
 					</tr>
@@ -194,7 +196,19 @@
 							<%}%> --%>
 						</td>
 						<td><%=bname%></td>
-						<td><%=pw %>
+						<td style="color:red; font-weight:500">
+						<!--총금액 -->
+						<% 
+							BankbookDTO bm=new BankbookDTO();
+							bm.setBnumber(bnumber);
+
+							BankBookNumberDAO bnum=new BankBookNumberDAO();
+							BankBookNumberDTO book=bnum.getBankBook(bm);
+							int sum=book.getBn_sum();
+						%>
+							<%=sum %>
+						</td>
+						<td><%=pw %></td>
 						<td>
 							<%=regdate%>
 							<input type="button" value="삭제" onclick="location.href='myBankBookDelete.jsp?bnumber=<%=bnumber%>'"/>
@@ -254,8 +268,8 @@
 	<form name="readFrm">
 		<input type="hidden" name="nowPage" value="<%=nowPage%>">
 		<input type="hidden" name="numPerPage" value="<%=numPerPage%>">
-		<input type="hidden" name="keyField" value="<%=keyField%>">
-		<input type="hidden" name="keyWord" value="<%=keyWord%>">
+<%-- 	<input type="hidden" name="keyField" value="<%=keyField%>">
+		<input type="hidden" name="keyWord" value="<%=keyWord%>"> --%>
 		<input type="hidden" name="num">
 	</form>
 </div>

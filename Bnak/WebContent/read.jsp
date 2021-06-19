@@ -22,7 +22,6 @@
 		//String userID=(String)session.getAttribute("userID");
 		//계좌번호?_test
 		int num = UtilMgr.parseInt(request, "num");	
-		//int num=20408;
 		//요청된 numPerPage 처리
 		//요청이 있으면 처리가 되지만 그렇지 않으면 기본 10개 세팅이 된다.
 		if(request.getParameter("numPerPage")!=null){
@@ -39,7 +38,7 @@
 		
 		//검색 후에 다시 처음화면 요청
 		if(request.getParameter("reload")!=null&&
-				request.getParameter("reload").equals("true")){
+			request.getParameter("reload").equals("true")){
 			keyField = ""; keyWord = "";
 		}
 		
@@ -100,10 +99,6 @@ function check() {
 	}
 
 //------------------------------------------
-	function list() {
-		document.listFrm.action = "list.jsp";
-		document.listFrm.submit();
-	}
 
 </script>
 </head>
@@ -146,13 +141,13 @@ function check() {
 				 		<tr>
 				  			<td align="center" valign="bottom">
 				   				<select name="keyField" size="1" >
-				    				<!-- <option value="bn_"> 이 름</option> -->
 				    				<option value="bn_date">날짜</option>
-				    				<option value="bn_commit"> 메모</option>
+				    				<option value="bn_commit">메모</option>
 				   				</select>
 				   				<input size="20" name="keyWord">
 				   				<input type="button"  value="찾기"  class="btn btn-primary" onClick="javascript:check()">
 				   				<input type="hidden" name="nowPage" value="1">
+				   				<input type="hidden" name="num" value="<%=num%>" >
 				  			</td>
 				 		</tr>
 					</table>
@@ -179,7 +174,7 @@ function check() {
 						<th>입금</th>
 						<th>출금</th>
 						<th>남은금액</th>
-						<th>코멘트</th>
+						<th>메모</th>
 						<th>날짜</th>
 						
 					</tr>
@@ -272,7 +267,7 @@ function check() {
 		<input type="hidden" name="numPerPage" value="<%=numPerPage%>">
 		<input type="hidden" name="keyField" value="<%=keyField%>">
 		<input type="hidden" name="keyWord" value="<%=keyWord%>">
-		<input type="hidden" name="num" value="<%=num%>">
+		<input type="hidden" name="num" value="<%=num%>" >
 	</form> 
 </div>
 </body>

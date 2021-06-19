@@ -35,7 +35,7 @@ public class BankBookNumberDAO {
 		
 		//시간설정
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd-hh");
 		
 		try {
 			//db연결
@@ -62,10 +62,6 @@ public class BankBookNumberDAO {
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		
-		//시간설정
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
 		
 		BankBookNumberDTO bBookNumber= new BankBookNumberDTO();
 		try {

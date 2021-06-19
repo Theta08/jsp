@@ -39,7 +39,7 @@
 	//더한값을 sum에넣고 db에 저장해 총금액을 구한다.
 	 sum-=money;
 	
-	//출금 칼럼에 0
+	//출금
 	int result=bnum.insert_plus(new BankBookNumberDTO(bm,0,money,sum,note,null));
 	
  	if(result==1){

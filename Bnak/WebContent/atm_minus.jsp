@@ -14,7 +14,7 @@
 	</header>
 	<div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">돈 입금하기</h1>
+          <h1 class="display-3">돈 출금하기</h1>
           <h2>${userID}</h2>
         </div>
       </div>

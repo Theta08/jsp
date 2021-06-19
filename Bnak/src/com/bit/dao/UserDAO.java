@@ -23,7 +23,7 @@ public class UserDAO {
 		
 		//시간설정
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd-hh:mm");
 		
 		try {
 			//db연결
