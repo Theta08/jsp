@@ -15,7 +15,6 @@
 	<div class="jumbotron">
         <div class="container">
           <h1 class="display-3">돈 출금하기</h1>
-          <h2>${userID}</h2>
         </div>
       </div>
 	<div class="container col-md-7 col-lg-8">
@@ -42,11 +41,26 @@
 	<br>
 	
 		<div class="footer" align="right">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<a class="btn btn-secondary" href="index.jsp" role="button"> 나가기</a>
 				<button type="submit" class="btn btn-primary">확인</button>
 		</div>
 		</form>
 	</div>
 
 </body>
+<script>
+	function cheak(){
+		if (!document.bank_give.bn_number.value) {
+			alert("계좌번호를 적어주세요.");
+			return false;
+		}
+	
+	 	if (!document.bank_give.bn_minus.value) {
+			alert("금액을 적어주세요");
+			return false;
+		}
+	 	
+	 	
+}
+</script>
 </html>

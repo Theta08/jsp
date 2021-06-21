@@ -22,7 +22,7 @@
     <!-- 모달:파업창,오픈 버튼 -->
     <!-- 모달을 오픈할수 있는 버튼: 추가(데이터토글,타겟) -->
     <div class="container">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
             	통장만들기 »
         </button>
     </div>

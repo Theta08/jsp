@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
 <title>Insert title here</title>
 </head>
 <% 
@@ -16,21 +18,23 @@
 </header>
 <main role="main">
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron" style="background-image: url('resources/img/sky.jpg'); background-size: cover; background-position: center;">
         <div class="container">
-          <h1 class="display-3">입출금 은행 만들기</h1>
-          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+          <h1 class="display-3">입출금 은행</h1>
+          <p></p>
           <p><jsp:include page="makeBankBook.jsp"/></p>
         </div>
       </div>
 
-      <div class="container">
+      <div class="container" >
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
             <h2>돈 보내기</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="atm_minus.jsp" role="button">View details »</a></p>
+           <!--  <img src="resources/img/sky.jpg" class="img-fluid"> -->
+          <i class="fas fa-camera"></i>
+          <i class="fas fa-hand-holding-usd"></i>
+            <p><a class="btn btn-outline-primary" href="atm_minus.jsp" role="button">View details »</a></p>
           </div>
           <div class="col-md-4">
             <h2>돈 입금하기</h2>

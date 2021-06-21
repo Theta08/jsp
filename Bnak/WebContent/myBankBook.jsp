@@ -178,7 +178,7 @@
 				for(int i=0;i<numPerPage;i++){
 					if(i==listSize) break;
 					BankbookDTO bean = vlist.get(i);
-					int bnumber = bean.getBnumber();//번호
+					int bnumber = bean.getBnumber();//계좌번호
 					String bname = bean.getBname();//이름
 					int pw = bean.getBpassword();// 비밀번호
 					String regdate = bean.getBdate();//날짜
