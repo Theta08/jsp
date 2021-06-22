@@ -74,9 +74,9 @@
 	 
     <!-- 모달:파업창,오픈 버튼 -->
     <!-- 모달을 오픈할수 있는 버튼: 추가(데이터토글,타겟) -->
-		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bankBookModal">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bankBookModal">
            	내통장 »
-       	</button> -->
+       	</button>
    
  
 		   <!-- Modal에 숨어있다가 버튼클릭시 화면에 출력 -->
@@ -92,7 +92,7 @@
 		                </div>
 		                
 		                <div class="modal-body">						
-		               <!--  <form action="#" method="post" name="newBank"> -->
+		                <form action="#" method="post" name="newBank">
 		                 	<div class="form-row">
 								<div class="form-group col-sm-6">
 									<%-- <label>이름</label>
@@ -149,12 +149,12 @@
 							</div>
 							
 							
-			            	<div class="modal-footer">
+			              <!-- <div class="modal-footer">
 			                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			                    <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+			                    <button type="submit" class="btn btn-primary">확인</button>
 			               </div>
-			               
-							<!-- </form> -->
+			                 -->
+							</form>
 		                </div>
 		            </div>
 		        </div>
@@ -165,15 +165,18 @@
     <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/bootstrap.bundle.min.js"></script>
  <script>
-/*  for(var i=0;i<cell.length;i++){
-		cell[i].onclick=function(){
-		    //console.log(this.innerHTML);
-		    str=this.innerHTML;
-		    console.log(str);
-		 	//모던 숫자 클릭시 값의 #bankNum text에 넣기
-		    document.getElementById('bankNum').value=str;
-		    };
-		} */
+    	//var tabke=document.getElementByid('table');
+    	var a=document.getElementById('table');
+    	var cell=a.getElementsByTagName('td');
+    	var tdArr=new Array();
+    	
+    	for(var i=0;i<cell.length;i++){
+    		cell[i].onclick=function(){
+    		    console.log(this.innerHTML);
+   				console.log(no);
+    		    };
+    		}
+    	
  </script>
 </body>
 </html>

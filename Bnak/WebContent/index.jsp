@@ -34,17 +34,17 @@
            <!--  <img src="resources/img/sky.jpg" class="img-fluid"> -->
           <i class="fas fa-camera"></i>
           <i class="fas fa-hand-holding-usd"></i>
-            <p><a class="btn btn-outline-primary" href="atm_minus.jsp" role="button">View details »</a></p>
+            <p><a class="btn btn-outline-primary" role="button" onclick="checkForm(1)">View details »</a></p>
           </div>
           <div class="col-md-4">
             <h2>돈 입금하기</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="atm_plush.jsp" role="button">View details »</a></p>
+            <p><a class="btn btn-secondary" role="button" onclick="checkForm(2)">View details »</a></p>
           </div>
           <div class="col-md-4">
             <h2>내 통장</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button" onclick="checkForm()">View details »</a></p>
+            <p><a class="btn btn-secondary" role="button" onclick="checkForm(3)">View details »</a></p>
           </div>
         </div>
 
@@ -55,13 +55,21 @@
     </main>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-function checkForm() {// 로그인확인 
+function checkForm(a) {// 로그인확인 
 	//alert("실험");
 	if (${userID==null}) {
 		alert("로그인 해주세요.");
 		return false;
 	}
-	location.href = "./myBankBook.jsp"	//로그인시 myBankBook.jsp로 감
+	  switch (a){
+      case 1: location.href = "./atm_minus.jsp";	//로그인시atm_minus.jsp로 감 
+      			break;
+      case 2: location.href = "./atm_plush.jsp";	//로그인시 atm_plush.jsp로 감 
+      			break;
+      case 3: location.href = "./myBankBook.jsp";	//로그인시 myBankBook.jsp로 감 
+      			break;
+  }
+	  //location.href = "./myBankBook.jsp"	//로그인시 myBankBook.jsp로 감
 }
 </script>
 </body>
