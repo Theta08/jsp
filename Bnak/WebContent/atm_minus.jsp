@@ -39,9 +39,14 @@
 				</button>
 				<jsp:include page="cheakBankBook.jsp"/>
 			</div>
-			<div class="form-group col-sm-8">
+			<div class="form-group col-sm-4">
 				<label>금액을 적어주세요</label>
 				<input type="text" name="bn_minus" placeholder="금액을 적어주세요" class="form-control" maxlength="10">
+			</div>
+			<div class="form-group col-sm-4">
+				<label>비밀번호</label>
+				<input type="password" name="bn_pw" class="form-control" maxlength="10"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 			</div>
 			<div class="form-group col-sm-8">
 				<label>메모</label>
@@ -85,7 +90,10 @@ for(var i=0;i<cell.length;i++){
 			alert("금액을 적어주세요");
 			return false;
 		}
-	 	
+	 	if (!document.bank_get.bn_pw.value) {
+			alert("비밀번호를 적어주세요");
+			return false;
+		}
 	 	
 }
 </script>

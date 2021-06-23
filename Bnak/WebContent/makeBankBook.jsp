@@ -62,7 +62,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-sm-8">
-									비밀번호<input type="password" name="bpassword" class="form-control" maxlength="20"
+									비밀번호<input type="password" name="bpassword" class="form-control" maxlength="4"
 									oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 								</div>
 							</div>

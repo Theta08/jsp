@@ -1,3 +1,4 @@
+<%@page import="com.bit.dao.BankbookDAO"%>
 <%@page import="com.bit.dto.BankbookDTO"%>
 <%@page import="com.bit.dto.BankBookNumberDTO"%>
 <%@page import="com.bit.dto.UserDTO"%>
@@ -15,6 +16,23 @@
 	String name=user.getUserName();
 	String date=user.getDate(); 
  	
+//--------------tbl_bank---------------------	
+	BankbookDAO bb=new BankbookDAO();
+	
+	UserDTO user1= new UserDTO();
+	String nam="a";
+	user1.setUserID(a);
+	
+	int number1=27475;
+	BankbookDTO b=bb.numberCheck(number1);
+	
+	int b_n=b.getBnumber();
+	String bname=b.getBname();
+	int b_pw=b.getBnumber();
+	String b_userid=user1.getUserID();
+	String b_date=b.getBdate();
+	
+//--------------tbl_bankbooknumber--------------------	
 	int n=27475;
 	
 	BankbookDTO bk=new BankbookDTO();
@@ -44,3 +62,11 @@ user_minus: <%=minus %><br>
 user_sum: <%=sum %><br>
 user_commit: <%=commit %><br>
 user_bdate: <%=bdate %><br>
+
+<hr>
+<h3>tbl_bank</h3>
+b_num:<%=b_n%><br>
+b_bname:<%=bname%><br>
+b_pw:<%=b_pw%><br>
+b_userid:<%=b_userid%><br>
+b_date:<%=b_date%><br>

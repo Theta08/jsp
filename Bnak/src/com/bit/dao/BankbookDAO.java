@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 import com.bit.dto.BankbookDTO;
+import com.bit.dto.UserDTO;
 import com.bit.util.DBConnecion;
 import com.bit.util.DBConnectionMgr;
 
@@ -66,26 +67,42 @@ public class BankbookDAO {
 		return -1;
 	}
 	
-	//통장번호 확인 //? 오류
-	public void numberCheck(BankbookDTO bankbook,int number) {
-		String sql="select * from tbl_bank WHERE bnumber= ?;";
+	//통장번호 확인 
+	public BankbookDTO numberCheck(int number) {
+		
 		Connection conn=null;
 		PreparedStatement pstmt=null;
-		ResultSet rs=null;
 		
+		ResultSet rs=null;
+		BankbookDTO bankbook =new BankbookDTO();
 		try {
+			
 			//db연결
 			conn=pool.getConnection();
+			String sql="select * from tbl_bank WHERE bnumber= ?;";
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, bankbook.getBnumber());
-			
+			pstmt.setInt(1, number);
 			rs=pstmt.executeQuery();		//select
 		
-			int test=rs.getInt("bnumber");
+			
+			
+			if(rs.next()) {
+				bankbook.setBnumber(rs.getInt("bnumber"));
+				bankbook.setBname(rs.getString("bname"));
+				bankbook.setBpassword(rs.getInt("bpassword"));
+				
+				UserDTO user=new UserDTO();
+				user.setUserID(rs.getString("buserid"));
+				bankbook.setUserID(user);
+				
+				bankbook.setBdate(rs.getString("bdate"));
+			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {pool.freeConnection(conn, pstmt, rs);}	//db종료
+		
+		return bankbook;
 		
 		
 	}

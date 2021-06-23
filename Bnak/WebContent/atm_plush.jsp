@@ -1,3 +1,6 @@
+<%@page import="com.bit.dto.BankbookDTO"%>
+<%@page import="com.bit.dto.UserDTO"%>
+<%@page import="com.bit.dao.BankbookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -33,9 +36,14 @@
 			       		<jsp:include page="cheakBankBook.jsp"/>
 				</div>
 				
-				<div class="form-group col-sm-8">
+				<div class="form-group col-sm-4">
 					<label>금액을 적어주세요</label>
 					<input type="text" name="bn_plus" placeholder="금액을 적어주세요" class="form-control" maxlength="10">
+				</div>
+				<div class="form-group col-sm-4">
+					<label>비밀번호</label>
+					<input type="password" name="bn_pw" class="form-control" maxlength="10"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				</div>
 				<div class="form-group col-sm-8">
 					<label>메모</label>
@@ -80,9 +88,11 @@ for(var i=0;i<cell.length;i++){
 			alert("금액을 적어주세요");
 			return false;
 		}
-	 	
+	 	if (!document.bank_get.bn_pw.value) {
+			alert("비밀번호를 적어주세요");
+			return false;
+		}
 	 	
 	}
-
 </script>
 </html>
