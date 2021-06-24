@@ -26,22 +26,26 @@
         </div>
       </div>
 
-      <div class="container" >
+      <div class="container text-center" >
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4 border-right border-left">
-            <h2>돈 출금하기</h2>
-	         <!-- <i class="fas fa-camera"></i> -->
-            <p><a class="btn btn-primary align-self-md-end" role="button" onclick="checkForm(1)">출금하기 »</a></p>
+            <h2 class="">돈 출금하기</h2>
+             <a class="" role="button" onclick="checkForm(1)">
+		         <img src="resources/img/sky.jpg" class="img-fluid rounded" alt="...">
+             </a>
           </div>
           <div class="col-md-4 border-right">
             <h2>돈 입금하기</h2>
-            <p><a class="btn btn-primary" role="button" onclick="checkForm(2)">입금하기 »</a></p>
+          	 <a class="" role="button" onclick="checkForm(2)">
+				<img src="resources/img/sky.jpg" class="rounded" width="100%" alt="...">	
+			</a>
           </div>
           <div class="col-md-4 border-right">
             <h2>내 통장</h2>
-          
-            <p><a class="btn btn-primary" role="button" onclick="checkForm(3)">내 통장 »</a></p>
+            <a class="" role="button" onclick="checkForm(3)">
+				<img src="resources/img/sky.jpg" class="img-fluid rounded" alt="...">	
+			</a>
           </div>
         </div>
 
