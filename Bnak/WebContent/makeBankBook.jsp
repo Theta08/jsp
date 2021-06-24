@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<title>Insert title here</title>
+<title>내 통장</title>
 </head>
 <body>
 <body>
@@ -52,7 +52,7 @@
 							<label>계좌번호</label>	
 							<div class="form-row">
 								<div class="form-group col-sm-10">
-									<input type="text" name="bnumber" id="randBtnNumber" class="form-control" maxlength="10">
+									<input type="text" name="bnumber" id="randBtnNumber" class="form-control" maxlength="10" readonly>
 								</div>
 								<div class="form-group col-sm-2">
 									<button type="button" class="btn btn-primary " onclick="makeRandBtn()">

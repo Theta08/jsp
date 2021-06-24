@@ -196,7 +196,7 @@
 							<%}%> --%>
 						</td>
 						<td><%=bname%></td>
-						<td style="color:red; font-weight:500">
+						<td style="color: #d73246; font-weight:500">
 						<!--총금액 -->
 						<% 
 							BankbookDTO bm=new BankbookDTO();
@@ -211,7 +211,7 @@
 						<td><%=pw %></td>
 						<td>
 							<%=regdate%>
-							<input type="button" value="삭제" onclick="location.href='myBankBookDelete.jsp?bnumber=<%=bnumber%>'"/>
+							<input type="button" class="btn btn-danger" value="삭제" onclick="location.href='myBankBookDelete.jsp?bnumber=<%=bnumber%>'"/>
 						</td>
 					</tr>
 				

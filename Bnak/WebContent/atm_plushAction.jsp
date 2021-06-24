@@ -84,25 +84,4 @@
 		
 	} 
 	
-	  
- 	
- 	
 %>
-<%-- num: <%=num %><br> --%>
-bnumber<%=bnumber%><br>
-<!-- setAttribute를 써야함 -->
-maney++:${money}<br>
-j: ${j}<br>
-<!--  -->
-book_num: <%=num %><br>
-book_plus: <%=plus %><br>
-user_minus: <%=minus %><br>
-user_sum: <%=sum %><br>
-user_commit: <%=commit %><br>
-user_bdate: <%=bdate %><br>
-<br>
-pw:<%=userpw %><br>
-b_pw:<%=b_pw %><br>
-maney:<%=money%><br>
-sum:<%=money+sum %><br>
-note:<%=note%><br>

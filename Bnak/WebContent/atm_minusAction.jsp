@@ -83,7 +83,3 @@
 		
 	} 
 %>
-bnumber<%=bnumber%><br>
-maney:${booknum_sum+booknum_plush}<br>
-maney:<%=money%><br>
-note:<%=note%><br>

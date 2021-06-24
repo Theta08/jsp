@@ -74,8 +74,7 @@ public class BankBookNumberDAO {
 			
 			//db연결
 			if(rs.next()) {
-				//오류
-//				bBookNumber.setBankbook(bm.setBnumber(rs.getInt("bm")));
+				//외래키 연결
 				BankbookDTO bm=new BankbookDTO();
 				bm.setBnumber(rs.getInt("bn_number"));
 				bBookNumber.setBankbook(bm);
@@ -93,36 +92,5 @@ public class BankBookNumberDAO {
 		
 		return bBookNumber;
 	}
-	//test
-	public UserDTO getBankBook2(String id) {
-		
-		Connection conn=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		String sql = null;
-		UserDTO user=new UserDTO();
-		
-		try {
-			conn=pool.getConnection();
-			sql="SELECT * FROM tbl_user WHERE userID=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();		
-			//db연결
-			if(rs.next()) {
-				user.setUserID(rs.getString("userID"));
-				user.setUserPW(rs.getString("userPW"));
-				user.setUserName(rs.getString("userName"));
-				user.setDate(rs.getString("date"));
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		} finally {pool.freeConnection(conn, pstmt, rs);}	//db종료
-		
-		return user;
-	}
 	
-	
-
 }

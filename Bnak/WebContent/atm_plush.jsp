@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<title>Insert title here</title>
+<title>입금</title>
 </head>
 <body>
 	<header>

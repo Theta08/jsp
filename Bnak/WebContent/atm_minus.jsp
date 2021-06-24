@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<title>Insert title here</title>
+<title>출금</title>
 </head>
 <body>
 	<% //session으로 id값 가져오기 
@@ -21,7 +21,7 @@
 	<header>
 		<jsp:include page="navbar.jsp"/>
 	</header>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background-image: url('resources/img/give.jpg'); background-size: cover; height: 100%; background-position: center;">
         <div class="container">
           <h1 class="display-3">돈 출금하기</h1>
         </div>

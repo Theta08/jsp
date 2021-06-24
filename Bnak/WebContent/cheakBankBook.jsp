@@ -108,15 +108,15 @@
 								Vector<BankbookDTO> vlist = 
 								mgr.getBoardList(keyField, keyWord, start, cnt, userID);
 								int listSize = vlist.size();//브라우저 화면에 표시될 게시물 번호
-								if(vlist.isEmpty()){
-									out.println("등록된 통장이 없습니다.");
-								}else{
-								%> 
+								if(vlist.isEmpty()){%>																						
+									<tr align="center">
+										<td>등록된 통장이 없습니다.</td>
+									</tr>
+								<%}else{%> 
 								
 									<tr align="center" colspan="2">
 										
 										<th>계좌번호</th>
-										<!-- <th>이름</th> -->
 										<th>금액</th>
 									</tr>
 										<%
@@ -128,8 +128,7 @@
 										%>
 									<tr align="center">
 										<td><%=bnumber%></td>
-										<%-- <td><%=bname%></td> --%>
-										<td style="color:red; font-weight:500">
+										<td style="color: #d73246; font-weight:500">
 										<!--총금액 -->
 										<% 
 											BankbookDTO bm=new BankbookDTO();
@@ -144,8 +143,9 @@
 									</tr>	
 					
 						<%			}//---for%>				
-									</table>
+									
 						<%			}//---if-else%>		
+						</table>
 							</div>
 							
 							
@@ -164,16 +164,5 @@
     <!-- min용량이 적은거 -->
     <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/bootstrap.bundle.min.js"></script>
- <script>
-/*  for(var i=0;i<cell.length;i++){
-		cell[i].onclick=function(){
-		    //console.log(this.innerHTML);
-		    str=this.innerHTML;
-		    console.log(str);
-		 	//모던 숫자 클릭시 값의 #bankNum text에 넣기
-		    document.getElementById('bankNum').value=str;
-		    };
-		} */
- </script>
 </body>
 </html>

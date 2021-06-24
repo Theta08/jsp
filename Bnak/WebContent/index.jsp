@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
-<title>Insert title here</title>
+<title>입출금 통장</title>
 </head>
 <% 
 	String userID=(String)session.getAttribute("userID");
@@ -29,22 +29,19 @@
       <div class="container" >
         <!-- Example row of columns -->
         <div class="row">
-          <div class="col-md-4">
-            <h2>돈 보내기</h2>
-           <!--  <img src="resources/img/sky.jpg" class="img-fluid"> -->
-          <i class="fas fa-camera"></i>
-          <i class="fas fa-hand-holding-usd"></i>
-            <p><a class="btn btn-outline-primary" role="button" onclick="checkForm(1)">View details »</a></p>
+          <div class="col-md-4 border-right border-left">
+            <h2>돈 출금하기</h2>
+	         <!-- <i class="fas fa-camera"></i> -->
+            <p><a class="btn btn-primary align-self-md-end" role="button" onclick="checkForm(1)">출금하기 »</a></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 border-right">
             <h2>돈 입금하기</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" role="button" onclick="checkForm(2)">View details »</a></p>
+            <p><a class="btn btn-primary" role="button" onclick="checkForm(2)">입금하기 »</a></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 border-right">
             <h2>내 통장</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" role="button" onclick="checkForm(3)">View details »</a></p>
+          
+            <p><a class="btn btn-primary" role="button" onclick="checkForm(3)">내 통장 »</a></p>
           </div>
         </div>
 

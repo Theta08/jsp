@@ -210,6 +210,23 @@ public class BoardMgr {
 		}
 	}
 	
+	//BankBookNumber(tbl_bankbooknumber) 기록 삭제
+	public void deleteBoardNumber(int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "delete from tbl_bankbooknumber where bn_number=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+	}
 }
 
 

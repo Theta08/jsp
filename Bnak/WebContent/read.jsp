@@ -198,15 +198,15 @@ function check() {
 					
 					<tr align="center">
 						<td><%=totalRecord-start-i%></td>
-						<td align="center">
+						<td align="center" style="color: #2075d8; font-weight:500">
 							<%-- <%for(int j=0;j<depth;j++){out.println("&nbsp;&nbsp;");} %> --%>
 							<%=plus%>
 							<%-- <%if(bcount>0){%>
 								<font color="red">(<%=bcount%>)</font>
 							<%}%> --%>
 						</td>
-						<td><%=minus%></td>
-						<td><%=sum %></td>
+						<td style="color: #ff8300; font-weight:500"><%=minus %></td>
+						<td style="color: #d73246; font-weight:500"><%=sum %></td>
 						<td><%=commit %></td>
 						<td>
 							<%=regdate%>
