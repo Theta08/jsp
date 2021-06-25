@@ -199,11 +199,7 @@ function check() {
 					<tr align="center">
 						<td><%=totalRecord-start-i%></td>
 						<td align="center" style="color: #2075d8; font-weight:500">
-							<%-- <%for(int j=0;j<depth;j++){out.println("&nbsp;&nbsp;");} %> --%>
 							<%=plus%>
-							<%-- <%if(bcount>0){%>
-								<font color="red">(<%=bcount%>)</font>
-							<%}%> --%>
 						</td>
 						<td style="color: #ff8300; font-weight:500"><%=minus %></td>
 						<td style="color: #d73246; font-weight:500"><%=sum %></td>
@@ -251,8 +247,7 @@ function check() {
 			</table>
 			</div>
 			<div class="text-right">
-					<!-- <a href="post.jsp">[글쓰기]</a> -->
-					<a href="myBankBook.jsp" class="btn btn-success">처음으로</a>
+					<a href="myBankBook.jsp" class="btn btn-success">내 통장</a>
 			</div>
 
 			<hr>

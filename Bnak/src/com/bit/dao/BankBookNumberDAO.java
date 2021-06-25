@@ -8,8 +8,6 @@ import java.text.SimpleDateFormat;
 
 import com.bit.dto.BankBookNumberDTO;
 import com.bit.dto.BankbookDTO;
-import com.bit.dto.UserDTO;
-import com.bit.util.DBConnecion;
 import com.bit.util.DBConnectionMgr;
 
 

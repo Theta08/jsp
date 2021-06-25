@@ -6,12 +6,20 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+import com.bit.dto.BankBookNumberDTO;
+import com.bit.dto.BankbookDTO;
 import com.bit.dto.UserDTO;
 import com.bit.util.DBConnecion;
+import com.bit.util.DBConnectionMgr;
 
 
 public class UserDAO {
 
+	private DBConnectionMgr pool;
+	
+	public UserDAO() {
+		pool = DBConnectionMgr.getInstance();
+	}
 	//회원가입
 	public int join(UserDTO user) {
 		//sql문
@@ -78,4 +86,34 @@ public class UserDAO {
 		return -2;			//db오류
 		
 	}
+public UserDTO getuser(String id) {
+		
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		UserDTO user= new UserDTO();
+		try {
+			conn=pool.getConnection();
+			//맨위에꺼를 계산을해서 맨밑에꺼로 계산하게 해야함
+			String sql="SELECT * FROM tbl_user WHERE userID=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			//db연결
+			if(rs.next()) {
+				user.setUserID(rs.getString("userID"));
+				user.setUserPW(rs.getString("userPW"));
+				user.setUserName(rs.getString("userName"));
+				user.setDate(rs.getString("date"));
+				
+			}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {pool.freeConnection(conn, pstmt, rs);}	//db종료
+		
+		return user;
+	}
+	
 }

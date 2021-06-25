@@ -28,23 +28,25 @@
 
       <div class="container text-center" >
         <!-- Example row of columns -->
+        <!-- https://www.flaticon.com/ img 사용 -->
         <div class="row">
           <div class="col-md-4 border-right border-left">
             <h2 class="">돈 출금하기</h2>
              <a class="" role="button" onclick="checkForm(1)">
-		         <img src="resources/img/sky.jpg" class="img-fluid rounded" alt="...">
+		         <img src="resources/img/atm.png" width="60%" alt="...">
              </a>
           </div>
           <div class="col-md-4 border-right">
             <h2>돈 입금하기</h2>
           	 <a class="" role="button" onclick="checkForm(2)">
-				<img src="resources/img/sky.jpg" class="rounded" width="100%" alt="...">	
+				<img src="resources/img/moneyAdd.png" width="60%" alt="...">	
 			</a>
           </div>
           <div class="col-md-4 border-right">
             <h2>내 통장</h2>
             <a class="" role="button" onclick="checkForm(3)">
-				<img src="resources/img/sky.jpg" class="img-fluid rounded" alt="...">	
+				<img src="resources/img/bankbook.png" class="img-fluid rounded" alt="...">	
+				
 			</a>
           </div>
         </div>

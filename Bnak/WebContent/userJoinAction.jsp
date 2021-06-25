@@ -11,8 +11,26 @@
 	String userPassword=request.getParameter("password");
 	String userName=request.getParameter("name");
 	
+	UserDAO userdao=new UserDAO();
+	UserDTO userdto=userdao.getuser(userID);
+
+	String id=userdto.getUserID();
+
+	
+	//id 중복 체크
+	if(userID.equals(id)){
+		PrintWriter script=response.getWriter();
+		System.out.print("");
+		script.println("<script>");
+		script.println("alert('이미 있는 아이디입니다.')");
+		script.println("history.back();");
+		script.println("</script>");
+		script.close();
+	}
+	
+	
 	//null 확인
-	if(userID==null||userPassword==null||userName==null){
+	 if(userID==null||userPassword==null||userName==null){
 		PrintWriter script=response.getWriter();
 		System.out.print("");
 		script.println("<script>");
@@ -33,8 +51,5 @@
 		script.println("</script>");
 		script.close();
 		return;
-	}
+	} 
 %>
-<%-- userID:<%=userID%><br>
-userPassword:<%=userPassword %><br>
-userName:<%=userName %><br> --%>
