@@ -111,14 +111,6 @@
         </div>
 </div>
 <div class="container">
-	<table>
-		<tr>
-			<td width="600">
-			Total : <%=totalRecord%>Articles(<font color="red">
-			<%=nowPage+"/"+totalPage%>Pages</font>)
-			</td>
-		</tr>
-	</table>
 			<div>
 				<div class="text-right">
 					<form name="npFrm" method="post">

@@ -108,18 +108,10 @@ function check() {
 </header>
 <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">내 통장</h1>
+          <h1 class="display-3">내 통장내역</h1>
         </div>
 </div>
 <div class="container">
-	<table>
-		<tr>
-			<td width="600">
-			Total : <%=totalRecord%>Articles(<font color="red">
-			<%=nowPage+"/"+totalPage%>Pages</font>)
-			</td>
-		</tr>
-	</table>
 			<div>
 				<div class="text-right">
 					<form name="npFrm" method="post">
@@ -164,7 +156,7 @@ function check() {
 				mgr.getBankBookBoardList(keyField, keyWord, start, cnt, num);
 				int listSize = vlist.size();//브라우저 화면에 표시될 게시물 번호
 				if(vlist.isEmpty()){
-					out.println("등록된 돈이 없습니다.");
+					out.println("등록된 내역 없습니다.");
 				}else{
 		%> 
 				

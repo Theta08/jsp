@@ -146,15 +146,7 @@
 									
 						<%			}//---if-else%>		
 						</table>
-							</div>
-							
-							
-			            	<div class="modal-footer">
-			                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			                    <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
-			               </div>
-			               
-							<!-- </form> -->
+							</div>							
 		                </div>
 		            </div>
 		        </div>
