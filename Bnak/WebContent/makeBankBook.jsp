@@ -84,6 +84,7 @@
     <!-- min용량이 적은거 -->
     <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/bootstrap.bundle.min.js"></script>
+    
     <script>
     	//버튼 클릭시 랜덤 숫자 발생  
 	    function makeRandBtn() {//통장번호 랜덤값 지정   5숫자

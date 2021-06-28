@@ -213,38 +213,41 @@ function check() {
 				</table>
 		<%			}//---if-else%>
 
-			<table>
-				<tr>
-					<td>
+			<nav aria-label="Page navigation example">
+				 <ul class="pagination">
+					<li class="page-item">
 					<!-- 페이징 및 블럭 Start -->
 							<%if(totalPage>0){%>
 						<!-- 이전 블럭 -->
 						<%if(nowBlock>1){ %>
-							<a href="javascript:block('<%=nowBlock-1%>')">prev...</a>
+							<a class="page-link" href="javascript:block('<%=nowBlock-1%>')">prev...</a></li>
 						<%} %>
 						<!-- 페이징 -->
+						<li class="page-item">
 						<%
 								int pageStart = (nowBlock-1)*pagePerBlock+1;
 								int pageEnd = (pageStart+pagePerBlock)<totalPage?
 										pageStart+pagePerBlock:totalPage+1;
 								for(;pageStart<pageEnd;pageStart++){
 						%>
-							<a href="javascript:pageing('<%=pageStart%>')">
+							<a class="page-link" href="javascript:pageing('<%=pageStart%>')">
 							<%if(nowPage==pageStart){%><font color="blue"><%}%>
-								[<%=pageStart%>]
+								<%=pageStart%>
 							<%if(nowPage==pageStart){%></font><%}%>
 							</a>
+						</li>
 						<%}//---for%>
 						<!-- 다음 블럭 -->
+						<li class="page-item">
 						<%if(totalBlock>nowBlock){ %>
-								<a href="javascript:block('<%=nowBlock+1%>')">...next</a>
+								<a class="page-link" href="javascript:block('<%=nowBlock+1%>')">...next</a></li>
 						<%} %>
 					<%}//---if1%>
 					<!-- 페이징 및 블럭 End -->
 					</td>
 					
-				</tr>
-			</table>
+				  </ul>
+			</nav>
 			</div>
 			<div class="text-right">
 					<a href="myBankBook.jsp" class="btn btn-success">내 통장</a>

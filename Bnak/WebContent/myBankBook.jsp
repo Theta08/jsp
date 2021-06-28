@@ -62,6 +62,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <script type="text/javascript">
@@ -219,39 +220,40 @@
 				</table>
 		<%			}//---if-else%>
 
-			<table>
-				<tr>
-					<td>
+			<nav aria-label="Page navigation example">
+				 <ul class="pagination">
 					<!-- 페이징 및 블럭 Start -->
 							<%if(totalPage>0){%>
 						<!-- 이전 블럭 -->
 						<%if(nowBlock>1){ %>
-							<a href="javascript:block('<%=nowBlock-1%>')">prev...</a>
+						<li class="page-item">
+							<a class="page-link" href="javascript:block('<%=nowBlock-1%>')">prev...</a>
 							
 						<%} %>
+						</li>
 						<!-- 페이징 -->
+						 <li class="page-item">
 						<%
 								int pageStart = (nowBlock-1)*pagePerBlock+1;
 								int pageEnd = (pageStart+pagePerBlock)<totalPage?
 										pageStart+pagePerBlock:totalPage+1;
 								for(;pageStart<pageEnd;pageStart++){
 						%>
-							<a href="javascript:pageing('<%=pageStart%>')">
+							<a class="page-link" href="javascript:pageing('<%=pageStart%>')">
 							<%if(nowPage==pageStart){%><font color="blue"><%}%>
-								[<%=pageStart%>]
+								<%=pageStart%>
 							<%if(nowPage==pageStart){%></font><%}%>
-							</a>
+							</a></li>
 						<%}//---for%>
 						<!-- 다음 블럭 -->
+					<li class="page-item">
 						<%if(totalBlock>nowBlock){ %>
-								<a href="javascript:block('<%=nowBlock+1%>')">...next</a>
-						<%} %>
+								<a class="page-link" href="javascript:block('<%=nowBlock+1%>')">...next</a>
+						</li><%} %>
 					<%}//---if1%>
 					<!-- 페이징 및 블럭 End -->
-					</td>
-					
-				</tr>
-			</table>
+				</ul>
+			</nav>
 			</div>
 			<div class="text-right">
 					<!-- <a href="post.jsp">[글쓰기]</a> -->

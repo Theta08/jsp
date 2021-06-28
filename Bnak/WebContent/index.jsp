@@ -30,19 +30,19 @@
         <!-- Example row of columns -->
         <!-- https://www.flaticon.com/ img 사용 -->
         <div class="row">
-          <div class="col-md-4 border-right border-left">
+          <div class="col-md-4">
             <h2 class="">돈 출금하기</h2>
              <a class="" role="button" onclick="checkForm(1)">
 		         <img src="resources/img/atm.png" width="60%" alt="...">
              </a>
           </div>
-          <div class="col-md-4 border-right">
+          <div class="col-md-4">
             <h2>돈 입금하기</h2>
           	 <a class="" role="button" onclick="checkForm(2)">
 				<img src="resources/img/moneyAdd.png" width="60%" alt="...">	
 			</a>
           </div>
-          <div class="col-md-4 border-right">
+          <div class="col-md-4">
             <h2>내 통장</h2>
             <a class="" role="button" onclick="checkForm(3)">
 				<img src="resources/img/bankbook.png" class="img-fluid rounded" alt="...">	
